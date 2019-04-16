@@ -1,0 +1,32 @@
+.header {
+    grid-area: header;
+}
+
+
+.main {
+    grid-area: main;
+}
+
+.right {
+    grid-area: right;
+
+}
+
+.footer {
+    grid-area: footer;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'header header'
+    'main right'
+    'main right'
+    'footer footer';
+    grid-template-columns: auto 20%;
+    padding-top: 5%;
+    width: 80%;
+    align-items: center;
+    margin: auto;
+}

@@ -1,1 +1,110 @@
-Hello World
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/marie.css">
+
+    <title>Marie's site</title>
+  </head>
+  <body>
+
+    <div class="grid-container">
+      <div class="header">
+	<h1>Me</h1>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="#"></a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+		<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+		<a class="nav-link" href="#">Link</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+      </div>
+
+      <div class="main">
+	<div class="row">
+	  <div class="col-4">
+	    <div class="list-group" id="list-tab" role="tablist">
+	      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
+	      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
+	      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+	      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+	    </div>
+	  </div>
+	  <div class="col-8">
+	    <div class="tab-content" id="nav-tabContent">
+	      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+		In EnosLib, networks provide connectivity between the
+		different machines. Networks are assigned to machines,
+		allowing to model non trivial topologies. Depending on the
+		underlying provider used, the implementation may differ :
+		bridge networks on Vagrant, vlans on Grid’5000 or private
+		networks on OpenStack. Similar to a group of machines, a
+		network can be given a set of roles. For example, these roles
+		can be used at the deployment time to segregate the network
+		traffic.
+	      </div>
+	      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+
+	      </div>
+	      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+		...
+	      </div>
+	      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+		...
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      <div class="right">
+	<div class="list-group">
+	  <a href="#" class="list-group-item list-group-item-action active">
+	    <div class="d-flex w-100 justify-content-between">
+	      <h5 class="mb-1">List group item heading</h5>
+	      <small>3 days ago</small>
+	    </div>
+	    <p class="mb-1">Titre</p>
+	    <small>lol</small>
+	  </a>
+	  <a href="#" class="list-group-item list-group-item-action">
+	    <div class="d-flex w-100 justify-content-between">
+	      <h5 class="mb-1">List group item heading</h5>
+	      <small class="text-muted">3 days ago</small>
+	    </div>
+	    <p class="mb-1">Titre2</p>
+	    <small class="text-muted">lil</small>
+	  </a>
+	  <a href="#" class="list-group-item list-group-item-action">
+	    <div class="d-flex w-100 justify-content-between">
+	      <h5 class="mb-1">List group item heading</h5>
+	      <small class="text-muted">3 days ago</small>
+	    </div>
+	    <p class="mb-1">Titre3</p>
+	    <small class="text-muted">lul</small>
+	  </a>
+	</div>
+      </div>
+      <div class="footer"></div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
