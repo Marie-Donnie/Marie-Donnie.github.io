@@ -1,0 +1,8 @@
+- name: Home
+  link: /
+- name: Blog
+  link: /blog_articles.html
+- name: Github projects
+  link: /github.html
+- name: Random stuff
+  link: /random.html

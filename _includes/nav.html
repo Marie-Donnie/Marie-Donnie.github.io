@@ -1,0 +1,18 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark rounded">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      {% for item in site.data.nav %}
+      <li class="nav-item {% if page.url == item.link %}active{% endif %}">
+	<a class="nav-link" href="{{ item.link }}">{{ item.name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+      <ul class="navbar-nav text-right">
+	<li class="nav-item active">
+	  <img id="kakapo" src="img/kakapo.png" alt="Kakapo" >
+	</li>
+      </ul>
+    </div>
+  </div>
+</nav>
