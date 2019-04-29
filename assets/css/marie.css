@@ -21,8 +21,8 @@
     display: grid;
     grid-template-areas:
     'header header'
-    'main right'
-    'main right'
+    'main main'
+    'main main'
     'footer footer';
     grid-template-columns: auto 20%;
     padding-top: 5%;
@@ -31,7 +31,27 @@
     margin: auto;
 }
 
-
-#kakapo{
+/* kakapo image */
+#kakapo {
     max-width: 50px;
+}
+
+.center {
+    margin: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.article-summary {
+    min-width: 40%;
+    padding: 1%;
+}
+
+
+.content {
+    max-width: 600px;
+    margin: auto;
+    text-align: justify
 }
