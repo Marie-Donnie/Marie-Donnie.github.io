@@ -31,9 +31,9 @@
     margin: auto;
 }
 
-/* kakapo image */
-#kakapo {
+#me {
     max-width: 50px;
+    border-radius: 50%;
 }
 
 .center {
