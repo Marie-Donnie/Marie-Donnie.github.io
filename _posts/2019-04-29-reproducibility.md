@@ -38,16 +38,14 @@ The three levels of reproducibility, according to ACM, are:
 >
 > The measurement can be obtained with stated precision by a different team, a different measuring system, in a different location on multiple trials. For computational experiments, this means that an independent group can obtain the same result using artifacts which they develop completely independently.
 
-These definitions are explicited more in *From Repeatability to Reproducibility and Corroboration*[^2].
+These definitions are explicited more in *From Repeatability to Reproducibility and Corroboration*[^2]. The author differenciates two other levels, variation, where someone either repeat or replicate the experiment with a modification of a parameter, and corroboration, where someone obtain the same results by other means.
+
+Instinctively, we feel that reproducibility purpose is to verify results of an experiments. While this is true, it is not the only reason. The main purpose of reproducing an experiment is to enlarge its scope, and to get a general, basic understanding of the measured system. Each level of reproducibility helps towards this goal.
+
+Repeatability is defined as the exact repetition of an experiment, under the same conditions.
+
 
 (more to come)
-
-
-
-
-
-
-
 
 
 
