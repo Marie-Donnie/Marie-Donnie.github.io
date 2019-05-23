@@ -57,6 +57,11 @@
     padding-top: 10px;
 }
 
+.content img {
+    max-width: 600px;
+    margin: auto;
+}
+
 .miniature {
     width: 64px;
     height: auto;
@@ -68,4 +73,15 @@
     max-width: 800px;
     margin: auto;
     text-align: justify;
+}
+
+pre[class="highlight"] {
+    background-color: aliceblue;
+    font-family: Monospace;
+    border-radius: 5%;
+    padding: 5px;
+}
+
+blockquote {
+    margin: 0 1rem 1rem;
 }
