@@ -142,14 +142,6 @@ The stone cutter experiment repeated, replicated and reproduced.
 - [Desquilbet, Loïc, Sabrina Granger, Boris Hejblum, Arnaud Legrand, Pascal Pernot, et Nicolas P. Rougier. Vers une recherche reproductible : Faire évoluer ses pratiques. Bordeaux : Urfist de Bordeaux, 2019. ISBN : 979-10-97595-05-0 ; https://hal.archives-ouvertes.fr/hal-02144142](https://rr-france.github.io/bookrr/)
 
 
-# Sources #
-
-[^1]: [ACM artifact review badging ](https://www.acm.org/publications/policies/artifact-review-badging)
-[^2]: [Dror G. Feitelson. 2015. From Repeatability to Reproducibility and Corroboration. SIGOPS Oper. Syst. Rev. 49, 1 (January 2015), 3-11. DOI: https://doi.org/10.1145/2723872.2723875](https://doi.org/10.1145/2723872.2723875)
-[^3]: [Schmidt, Stefan. (2009). Shall We Really Do It Again? The Powerful Concept of Replication Is Neglected in the Social Sciences. Review of General Psychology. 13. 90-100. 10.1037/a0015108.](https://www.researchgate.net/publication/232450980_Shall_We_Really_Do_It_Again_The_Powerful_Concept_of_Replication_Is_Neglected_in_the_Social_Sciences)
-[^4]: [Moseley, B., & Marks, P. (2006). Out of the tar pit. Software practice advancement (spa), 2006.](http://curtclifton.net/papers/MoseleyMarks06a.pdf)
-[^5]: [Legrand, Arnaud (2020). Obtaining faithful/reproducible measurements on modern CPUs. Presented in GDR-RSD day in Nantes.] (https://github.com/alegrand/SMPE/blob/master/lectures/talk_20_01_23_Nantes_RSD.pdf)
-
 # Some unquoted sources for really interested people #
 
 These links are some articles I've read for the production of this article, mostly about tools to repeat/replicate/reproduce the experiments:
@@ -158,3 +150,11 @@ These links are some articles I've read for the production of this article, most
 - [Séguin, C., Caron, E., & Dubus, S. (2019, May). SeeDep: Deploying Reproducible Application Topologies on Cloud Platform.](https://hal.archives-ouvertes.fr/hal-02119654/file/CLOSER_2019_41_CR.pdf)
 - [Cristian Ruiz, Salem Harrache, Michael Mercier, Olivier Richard:
 Reconstructable Software Appliances with Kameleon. Operating Systems Review 49(1): 80-89 (2015)](https://dl.acm.org/doi/10.1145/2723872.2723883)
+
+# Sources #
+
+[^1]: [ACM artifact review badging ](https://www.acm.org/publications/policies/artifact-review-badging)
+[^2]: [Dror G. Feitelson. 2015. From Repeatability to Reproducibility and Corroboration. SIGOPS Oper. Syst. Rev. 49, 1 (January 2015), 3-11. DOI: https://doi.org/10.1145/2723872.2723875](https://doi.org/10.1145/2723872.2723875)
+[^3]: [Schmidt, Stefan. (2009). Shall We Really Do It Again? The Powerful Concept of Replication Is Neglected in the Social Sciences. Review of General Psychology. 13. 90-100. 10.1037/a0015108.](https://www.researchgate.net/publication/232450980_Shall_We_Really_Do_It_Again_The_Powerful_Concept_of_Replication_Is_Neglected_in_the_Social_Sciences)
+[^4]: [Moseley, B., & Marks, P. (2006). Out of the tar pit. Software practice advancement (spa), 2006.](http://curtclifton.net/papers/MoseleyMarks06a.pdf)
+[^5]: [Legrand, Arnaud (2020). Obtaining faithful/reproducible measurements on modern CPUs. Presented in GDR-RSD day in Nantes.] (https://github.com/alegrand/SMPE/blob/master/lectures/talk_20_01_23_Nantes_RSD.pdf)
