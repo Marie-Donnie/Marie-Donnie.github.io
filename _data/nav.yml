@@ -2,7 +2,9 @@
   link: /
 - name: Blog
   link: /blog_articles.html
-- name: Github projects
+- name: Projects
   link: /github.html
+- name: Communication
+  link: /sharing.html
 - name: Random stuff
   link: /random.html
