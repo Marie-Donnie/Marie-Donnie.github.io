@@ -11,6 +11,7 @@ a {
 
 .main {
     grid-area: main;
+    padding-top: 3%;
 }
 
 .right {
@@ -114,4 +115,17 @@ blockquote {
 .abstract {
     font-size: 0.95rem;
     font-style: italic;
+}
+
+.article {
+    padding: 1%;
+}
+
+h4 {
+    padding: 1%;
+    padding-top: 2%;
+}
+
+.project-image {
+    padding: 1%;
 }
