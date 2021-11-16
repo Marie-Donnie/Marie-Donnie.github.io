@@ -2,11 +2,11 @@
   link: /
 - name: Blog
   link: /blog_articles.html
-- name: Publications
-  link: /publications.html
-- name: Github projects
+# - name: Publications
+#   link: /publications.html
+- name: Projects
   link: /github.html
 - name: Communication
   link: /sharing.html
-- name: Random stuff
+- name: Random
   link: /random.html
