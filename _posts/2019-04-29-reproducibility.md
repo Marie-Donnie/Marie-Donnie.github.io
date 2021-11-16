@@ -134,6 +134,10 @@ The stone cutter experiment repeated, replicated and reproduced.
 </figure>
 
 
+# Tools #
+
+- [Github guide to make citable code using Zenodo](https://guides.github.com/activities/citable-code/)
+
 # Further reading #
 
 - [Beyond computational reproducibility, let us aim for reusability](http://gael-varoquaux.info/programming/beyond-computational-reproducibility-let-us-aim-for-reusability.html)
