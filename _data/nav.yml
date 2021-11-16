@@ -2,7 +2,9 @@
   link: /
 - name: Blog
   link: /blog_articles.html
-- name: Projects
+- name: Publications
+  link: /publications.html
+- name: Github projects
   link: /github.html
 - name: Communication
   link: /sharing.html
