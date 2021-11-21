@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-11-20 sam. 20:59 -->
+<!-- 2021-11-21 dim. 21:28 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Operate Resources in Public and Private Clouds Thanks to OpenStack</title>
@@ -259,62 +259,62 @@ editor to follow lab completion <a href="https://notes.inria.fr/L5mGTNGORdewfkfI
 <ul>
 <li><a href="#sec:req">1. Requirements and Setup</a>
 <ul>
-<li><a href="#orga547b8e">1.1. Environment</a></li>
+<li><a href="#orgf6213c2">1.1. Environment</a></li>
 <li><a href="#sec:assign-lab">1.2. Access the Lab machine</a></li>
 <li><a href="#sec:rscs-lab">1.3. Resources of the Lab</a></li>
-<li><a href="#org1fca827">1.4. Setup OpenStack</a></li>
+<li><a href="#org01fae0a">1.4. Setup OpenStack</a></li>
 </ul>
 </li>
 <li><a href="#sec:play-with-os">2. Play with OpenStack (as an Admin)</a>
 <ul>
-<li><a href="#orgf63887d">2.1. OpenStack Horizon dashboard</a></li>
+<li><a href="#org21e4b87">2.1. OpenStack Horizon dashboard</a></li>
 <li><a href="#sec:os-cli">2.2. Unleash the operator in you</a>
 <ul>
-<li><a href="#org8239e43">2.2.1. Make the world reaches the VM</a></li>
+<li><a href="#org6ca7bee">2.2.1. Make the world reaches the VM</a></li>
 </ul>
 </li>
 <li><a href="#sec:enc-trust">2.3. In encryption we trust</a></li>
-<li><a href="#org0dc9771">2.4. The art of contextualizing a VM</a>
+<li><a href="#org562f92b">2.4. The art of contextualizing a VM</a>
 <ul>
 <li><a href="#sec:debian10-ftw">2.4.1. Debian 10 FTW</a></li>
 <li><a href="#sec:cloud-init">2.4.2. <code>cloud-init</code> in Action</a></li>
 </ul>
 </li>
-<li><a href="#orgb2179e5">2.5. Run VMs at (near-)native speed</a></li>
+<li><a href="#org0567af3">2.5. Run VMs at (near-)native speed</a></li>
 </ul>
 </li>
 <li><a href="#sec:wp-devops">3. Deploy a WordPress as a Service (as a DevOps)</a></li>
 <li><a href="#sec:heat">4. Automatize the Deployment with Heat</a>
 <ul>
-<li><a href="#orgb0f7889">4.1. Preamble</a></li>
-<li><a href="#org8224f65">4.2. Boot a VM</a></li>
+<li><a href="#org3e5d51e">4.1. Preamble</a></li>
+<li><a href="#org6db5fef">4.2. Boot a VM</a></li>
 <li><a href="#sec:heat-params">4.3. Need more flexibility: let&rsquo;s add parameters</a></li>
 <li><a href="#sec:heat-outputs">4.4. Need to return values: let&rsquo;s use outputs</a></li>
-<li><a href="#org60570f8">4.5. Integrate <code>cloud-init</code></a></li>
-<li><a href="#org0ec4ee4">4.6. Dynamic configuration with <code>cloud-init</code> and parameters</a></li>
+<li><a href="#orgaaa790d">4.5. Integrate <code>cloud-init</code></a></li>
+<li><a href="#org3383799">4.6. Dynamic configuration with <code>cloud-init</code> and parameters</a></li>
 <li><a href="#sec:data-deps-rscs">4.7. Data dependency between resources</a></li>
-<li><a href="#org135781c">4.8. Nested templates</a></li>
-<li><a href="#org9fed64c">4.9. Nested templates with data dependency</a></li>
-<li><a href="#orga03a5c1">4.10. Other type of resources: floating IP</a></li>
+<li><a href="#org3d02189">4.8. Nested templates</a></li>
+<li><a href="#org37917cf">4.9. Nested templates with data dependency</a></li>
+<li><a href="#org1c16cbf">4.10. Other type of resources: floating IP</a></li>
 </ul>
 </li>
 <li><a href="#sec:wp-heat">5. Deploy a WordPress as a Service (as a Heat DevOps)</a></li>
-<li><a href="#orgd4616b0">6. Appendix</a>
+<li><a href="#org355aa08">6. Appendix</a>
 <ul>
-<li><a href="#org026e988">6.1. Install MariaDB on Debian 10</a></li>
-<li><a href="#org9605a03">6.2. Install Wordpress application on Debian 10</a></li>
+<li><a href="#orgd2ece14">6.1. Install MariaDB on Debian 10</a></li>
+<li><a href="#org9260a9c">6.2. Install Wordpress application on Debian 10</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orge35e7b0" class="outline-2">
-<h2 id="sec:req"><a id="orge35e7b0"></a><span class="section-number-2">1</span> Requirements and Setup</h2>
+<div id="outline-container-org318bd1b" class="outline-2">
+<h2 id="sec:req"><a id="org318bd1b"></a><span class="section-number-2">1</span> Requirements and Setup</h2>
 <div class="outline-text-2" id="text-sec:req">
 </div>
-<div id="outline-container-orga547b8e" class="outline-3">
-<h3 id="orga547b8e"><span class="section-number-3">1.1</span> Environment</h3>
+<div id="outline-container-orgf6213c2" class="outline-3">
+<h3 id="orgf6213c2"><span class="section-number-3">1.1</span> Environment</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 OpenStack needs, at least, 6 Go of RAM to run. And plenty more to
@@ -354,8 +354,8 @@ deployments.</li>
 </div>
 </div>
 
-<div id="outline-container-org1c55436" class="outline-3">
-<h3 id="sec:assign-lab"><a id="org1c55436"></a><span class="section-number-3">1.2</span> Access the Lab machine</h3>
+<div id="outline-container-orga99d2a0" class="outline-3">
+<h3 id="sec:assign-lab"><a id="orga99d2a0"></a><span class="section-number-3">1.2</span> Access the Lab machine</h3>
 <div class="outline-text-3" id="text-sec:assign-lab">
 <p>
 Find the assignation list of Lab machine per student on the
@@ -452,8 +452,8 @@ The rest of this lab <b>proceeds on the Lab machine</b>.
 </div>
 </div>
 
-<div id="outline-container-org28d588d" class="outline-3">
-<h3 id="sec:rscs-lab"><a id="org28d588d"></a><span class="section-number-3">1.3</span> Resources of the Lab</h3>
+<div id="outline-container-org0056dd5" class="outline-3">
+<h3 id="sec:rscs-lab"><a id="org0056dd5"></a><span class="section-number-3">1.3</span> Resources of the Lab</h3>
 <div class="outline-text-3" id="text-sec:rscs-lab">
 <p>
 Get the resources of the lab at <a href="https://raw.githubusercontent.com/Marie-Donnie/lectures/master/2021-2022/os-imt/tp.tar.gz">https://raw.githubusercontent.com/Marie-Donnie/lectures/master/2021-2022/os-imt/tp.tar.gz</a>:
@@ -477,8 +477,8 @@ The archive contains:
 </div>
 </div>
 
-<div id="outline-container-org1fca827" class="outline-3">
-<h3 id="org1fca827"><span class="section-number-3">1.4</span> Setup OpenStack</h3>
+<div id="outline-container-org01fae0a" class="outline-3">
+<h3 id="org01fae0a"><span class="section-number-3">1.4</span> Setup OpenStack</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Install snap.
@@ -518,12 +518,12 @@ status? What is the purpose of each service?
 </div>
 </div>
 
-<div id="outline-container-org7f92ccd" class="outline-2">
-<h2 id="sec:play-with-os"><a id="org7f92ccd"></a><span class="section-number-2">2</span> Play with OpenStack (as an Admin)</h2>
+<div id="outline-container-org6e432d9" class="outline-2">
+<h2 id="sec:play-with-os"><a id="org6e432d9"></a><span class="section-number-2">2</span> Play with OpenStack (as an Admin)</h2>
 <div class="outline-text-2" id="text-sec:play-with-os">
 </div>
-<div id="outline-container-orgf63887d" class="outline-3">
-<h3 id="orgf63887d"><span class="section-number-3">2.1</span> OpenStack Horizon dashboard</h3>
+<div id="outline-container-org21e4b87" class="outline-3">
+<h3 id="org21e4b87"><span class="section-number-3">2.1</span> OpenStack Horizon dashboard</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 One service deployed is the OpenStack dashboard (Horizon). On your own
@@ -572,8 +572,8 @@ the command line interface &hellip;
 </div>
 </div>
 
-<div id="outline-container-org7f4a920" class="outline-3">
-<h3 id="sec:os-cli"><a id="org7f4a920"></a><span class="section-number-3">2.2</span> Unleash the operator in you</h3>
+<div id="outline-container-orge8b5a1e" class="outline-3">
+<h3 id="sec:os-cli"><a id="orge8b5a1e"></a><span class="section-number-3">2.2</span> Unleash the operator in you</h3>
 <div class="outline-text-3" id="text-sec:os-cli">
 <p>
 While Horizon is helpful to discover OpenStack features, this is not
@@ -670,8 +670,8 @@ cli-vm login:
 </pre>
 </div>
 
-<div id="outline-container-org8239e43" class="outline-4">
-<h4 id="org8239e43"><span class="section-number-4">2.2.1</span> Make the world reaches the VM</h4>
+<div id="outline-container-org6ca7bee" class="outline-4">
+<h4 id="org6ca7bee"><span class="section-number-4">2.2.1</span> Make the world reaches the VM</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 The <a href="https://docs.openstack.org/neutron/ussuri/">neutron</a> service manage networks in OpenStack.  Neutron
@@ -778,8 +778,8 @@ resume it;</del> Does not work right now 😒.</li>
 </div>
 </div>
 
-<div id="outline-container-orge047d29" class="outline-3">
-<h3 id="sec:enc-trust"><a id="orge047d29"></a><span class="section-number-3">2.3</span> In encryption we trust</h3>
+<div id="outline-container-org32d2046" class="outline-3">
+<h3 id="sec:enc-trust"><a id="org32d2046"></a><span class="section-number-3">2.3</span> In encryption we trust</h3>
 <div class="outline-text-3" id="text-sec:enc-trust">
 <p>
 Any cirros VMs share the same credentials (i.e., <code>cirros</code>, <code>gocubsgo</code>)
@@ -857,8 +857,8 @@ openstack server show cli-vm-adminkey -c addresses -f value | sed  -Er 's/test=.
 </div>
 </div>
 
-<div id="outline-container-org0dc9771" class="outline-3">
-<h3 id="org0dc9771"><span class="section-number-3">2.4</span> The art of contextualizing a VM</h3>
+<div id="outline-container-org562f92b" class="outline-3">
+<h3 id="org562f92b"><span class="section-number-3">2.4</span> The art of contextualizing a VM</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Contextualizing is the process that automatically installs software,
@@ -883,8 +883,8 @@ executed on the VM as <code>root</code> during the boot process.
 </p>
 </div>
 
-<div id="outline-container-orge0fe680" class="outline-4">
-<h4 id="sec:debian10-ftw"><a id="orge0fe680"></a><span class="section-number-4">2.4.1</span> Debian 10 FTW</h4>
+<div id="outline-container-org5927ed7" class="outline-4">
+<h4 id="sec:debian10-ftw"><a id="org5927ed7"></a><span class="section-number-4">2.4.1</span> Debian 10 FTW</h4>
 <div class="outline-text-4" id="text-sec:debian10-ftw">
 <p>
 When it comes the time to deal with real applications, we cannot use
@@ -900,7 +900,7 @@ want to release all your resources before going further.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash" id="orgb34a53d"><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Delete VMs</span>
+<pre class="src src-bash" id="org15da621"><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Delete VMs</span>
 <span style="color: #00bfff;">for</span> vm<span style="color: #00bfff;"> in</span> $(<span style="color: #fa8072;">openstack</span> server list -c ID -f value); <span style="color: #00bfff;">do</span> <span style="color: #deb887;">\</span>
   <span style="color: #f08080;">echo</span> <span style="color: #deb887;">"Deleting ${vm}..."</span>; <span style="color: #deb887;">\</span>
   openstack server delete <span style="color: #deb887;">"${vm}"</span>; <span style="color: #deb887;">\</span>
@@ -940,8 +940,8 @@ creation arguments.
 </div>
 </div>
 
-<div id="outline-container-orga46e6f2" class="outline-4">
-<h4 id="sec:cloud-init"><a id="orga46e6f2"></a><span class="section-number-4">2.4.2</span> <code>cloud-init</code> in Action</h4>
+<div id="outline-container-org435afe6" class="outline-4">
+<h4 id="sec:cloud-init"><a id="org435afe6"></a><span class="section-number-4">2.4.2</span> <code>cloud-init</code> in Action</h4>
 <div class="outline-text-4" id="text-sec:cloud-init">
 <p>
 To tell <code>cloud-init</code> to load and execute a specific script at boot
@@ -952,15 +952,19 @@ extra argument to the regular <code>openstack server create</code> command.
 <div class="do">
 <p>
 Start a new VM named <code>art-vm</code> based on the <code>debian-10</code> image and the
-<code>m1.mini</code> flavor. The VM should load and execute the script <a href="#org263a80e">1</a>
+<code>m1.mini</code> flavor. The VM should load and execute the script <a href="#org41198fe">1</a>
 &#x2013; available under <code>rsc/art.sh</code> &#x2013; that installs the <a href="https://github.com/cmatsuoka/figlet"><code>figlet</code></a> and
-<a href="https://github.com/busyloop/lolcat"><code>lolcat</code></a> softwares on the VM.
+<a href="https://github.com/busyloop/lolcat"><code>lolcat</code></a> softwares on the VM. To allow the VM to connect to the
+outside world, you will have to execute the script <code>to-infinity.sh</code>,
+which you can find in <code>rsc/to-infinity.sh</code>. Be careful, you have to
+fill in at the end of the file, after the TODO, the NIC on the lab
+machine and its IP.
 </p>
 
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span><code>cloud-init</code> script available under <code>rsc/art.sh</code></label><pre class="src src-bash" id="org263a80e"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
+<label class="org-src-name"><span class="listing-number">Listing 1: </span><code>cloud-init</code> script available under <code>rsc/art.sh</code></label><pre class="src src-bash" id="org41198fe"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
 <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Fix DNS resolution</span>
 <span style="color: #f08080;">echo</span> <span style="color: #deb887;">""</span> &gt; /etc/resolv.conf
 <span style="color: #f08080;">echo</span> <span style="color: #deb887;">"nameserver 8.8.8.8"</span> &gt;&gt; /etc/resolv.conf
@@ -1017,8 +1021,8 @@ debian@art-vm:~$ figlet "The Art of Contextualizing a VM" | lolcat
 </div>
 </div>
 
-<div id="outline-container-orgb2179e5" class="outline-3">
-<h3 id="orgb2179e5"><span class="section-number-3">2.5</span> Run VMs at (near-)native speed</h3>
+<div id="outline-container-org0567af3" class="outline-3">
+<h3 id="org0567af3"><span class="section-number-3">2.5</span> Run VMs at (near-)native speed</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Every time you do an <code>openstack server create ...</code>, your request hits,
@@ -1098,8 +1102,8 @@ nova has been well taken into account.
 </div>
 </div>
 
-<div id="outline-container-org41ab555" class="outline-2">
-<h2 id="sec:wp-devops"><a id="org41ab555"></a><span class="section-number-2">3</span> Deploy a WordPress as a Service (as a DevOps)</h2>
+<div id="outline-container-orgebe38ec" class="outline-2">
+<h2 id="sec:wp-devops"><a id="orgebe38ec"></a><span class="section-number-2">3</span> Deploy a WordPress as a Service (as a DevOps)</h2>
 <div class="outline-text-2" id="text-sec:wp-devops">
 <p>
 In the previous sessions, we saw how to boot a VM with OpenStack, and
@@ -1154,22 +1158,22 @@ project named <code>os-owph</code>.</li>
 
 <p>
 The <code>rsc</code> directory provides bash scripts to deploy the MariaDB
-database and web server of WordPress (also in <a href="#orgd4616b0">Appendix</a>). Review it
+database and web server of WordPress (also in <a href="#org355aa08">Appendix</a>). Review it
 before going any further (spot the <b>{{ TODO }}</b>).  And ask yourself
 questions such as: Does the <code>wordpress-db</code> VM needs a floating IP in
 order to be reached by the <code>wordpress-app</code> VM?
 </p>
 
 <p>
-Also, remind to <a href="#orgb34a53d">clean your environment</a>.
+Also, remind to <a href="#org15da621">clean your environment</a>.
 </p>
 
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgaadf73b" class="outline-2">
-<h2 id="sec:heat"><a id="orgaadf73b"></a><span class="section-number-2">4</span> Automatize the Deployment with Heat</h2>
+<div id="outline-container-org52f6996" class="outline-2">
+<h2 id="sec:heat"><a id="org52f6996"></a><span class="section-number-2">4</span> Automatize the Deployment with Heat</h2>
 <div class="outline-text-2" id="text-sec:heat">
 <p>
 <a href="https://docs.openstack.org/heat/ussuri/">Heat</a> is the OpenStack orchestrator: it eats templates (called HOT for
@@ -1186,8 +1190,8 @@ find interesting examples in the <a href="https://docs.openstack.org/heat/ussuri
 </p>
 </div>
 
-<div id="outline-container-orgb0f7889" class="outline-3">
-<h3 id="orgb0f7889"><span class="section-number-3">4.1</span> Preamble</h3>
+<div id="outline-container-org3e5d51e" class="outline-3">
+<h3 id="org3e5d51e"><span class="section-number-3">4.1</span> Preamble</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 In this last part, the teacher has setup an OpenStack in a DataCenter
@@ -1236,8 +1240,8 @@ some commands such as the following to know about new names.
 </div>
 </div>
 
-<div id="outline-container-org8224f65" class="outline-3">
-<h3 id="org8224f65"><span class="section-number-3">4.2</span> Boot a VM</h3>
+<div id="outline-container-org6db5fef" class="outline-3">
+<h3 id="org6db5fef"><span class="section-number-3">4.2</span> Boot a VM</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 The simplest HOT template you can declare describes how to boot a VM.
@@ -1299,8 +1303,8 @@ parameters to add flexibility.
 </div>
 </div>
 
-<div id="outline-container-org7c83fdb" class="outline-3">
-<h3 id="sec:heat-params"><a id="org7c83fdb"></a><span class="section-number-3">4.3</span> Need more flexibility: let&rsquo;s add parameters</h3>
+<div id="outline-container-org6d6437a" class="outline-3">
+<h3 id="sec:heat-params"><a id="org6d6437a"></a><span class="section-number-3">4.3</span> Need more flexibility: let&rsquo;s add parameters</h3>
 <div class="outline-text-3" id="text-sec:heat-params">
 <p>
 Templates can be more flexible with parameters.  To that end you can:
@@ -1396,8 +1400,8 @@ on declaring outputs, so that a stack can return a set of attributes
 </div>
 </div>
 
-<div id="outline-container-orgd21d533" class="outline-3">
-<h3 id="sec:heat-outputs"><a id="orgd21d533"></a><span class="section-number-3">4.4</span> Need to return values: let&rsquo;s use outputs</h3>
+<div id="outline-container-orgfe15dbf" class="outline-3">
+<h3 id="sec:heat-outputs"><a id="orgfe15dbf"></a><span class="section-number-3">4.4</span> Need to return values: let&rsquo;s use outputs</h3>
 <div class="outline-text-3" id="text-sec:heat-outputs">
 <p>
 Templates can declare a set of attributes to return.  For instance,
@@ -1525,8 +1529,8 @@ openstack stack delete --wait --yes hw3
 </div>
 </div>
 
-<div id="outline-container-org60570f8" class="outline-3">
-<h3 id="org60570f8"><span class="section-number-3">4.5</span> Integrate <code>cloud-init</code></h3>
+<div id="outline-container-orgaaa790d" class="outline-3">
+<h3 id="orgaaa790d"><span class="section-number-3">4.5</span> Integrate <code>cloud-init</code></h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 It is possible to declare a post-installation script in the template
@@ -1598,8 +1602,8 @@ right after the log <code>Cloud-init v. ... running</code>.
 </div>
 </div>
 
-<div id="outline-container-org0ec4ee4" class="outline-3">
-<h3 id="org0ec4ee4"><span class="section-number-3">4.6</span> Dynamic configuration with <code>cloud-init</code> and parameters</h3>
+<div id="outline-container-org3383799" class="outline-3">
+<h3 id="org3383799"><span class="section-number-3">4.6</span> Dynamic configuration with <code>cloud-init</code> and parameters</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 Let&rsquo;s mix parameters and cloud-init to write a template with a
@@ -1670,8 +1674,8 @@ that Heat resources can exchange information.
 </div>
 </div>
 
-<div id="outline-container-orge01b6f7" class="outline-3">
-<h3 id="sec:data-deps-rscs"><a id="orge01b6f7"></a><span class="section-number-3">4.7</span> Data dependency between resources</h3>
+<div id="outline-container-orgd543692" class="outline-3">
+<h3 id="sec:data-deps-rscs"><a id="orgd543692"></a><span class="section-number-3">4.7</span> Data dependency between resources</h3>
 <div class="outline-text-3" id="text-sec:data-deps-rscs">
 <p>
 Let&rsquo;s declare a template with two VMs: <code>user</code> and <code>provider</code>.  The
@@ -1745,8 +1749,8 @@ openstack stack delete --wait --yes hw6
 </div>
 </div>
 
-<div id="outline-container-org135781c" class="outline-3">
-<h3 id="org135781c"><span class="section-number-3">4.8</span> Nested templates</h3>
+<div id="outline-container-org3d02189" class="outline-3">
+<h3 id="org3d02189"><span class="section-number-3">4.8</span> Nested templates</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 Heat is able to compose templates to keep human-readable files, using
@@ -1801,8 +1805,8 @@ dependency.
 </div>
 </div>
 
-<div id="outline-container-org9fed64c" class="outline-3">
-<h3 id="org9fed64c"><span class="section-number-3">4.9</span> Nested templates with data dependency</h3>
+<div id="outline-container-org37917cf" class="outline-3">
+<h3 id="org37917cf"><span class="section-number-3">4.9</span> Nested templates with data dependency</h3>
 <div class="outline-text-3" id="text-4-9">
 <p>
 Let&rsquo;s describe the same deployment as in section <a href="#sec:data-deps-rscs">4.7</a>
@@ -1896,8 +1900,8 @@ openstack stack delete --wait --yes hw8
 </div>
 </div>
 
-<div id="outline-container-orga03a5c1" class="outline-3">
-<h3 id="orga03a5c1"><span class="section-number-3">4.10</span> Other type of resources: floating IP</h3>
+<div id="outline-container-org1c16cbf" class="outline-3">
+<h3 id="org1c16cbf"><span class="section-number-3">4.10</span> Other type of resources: floating IP</h3>
 <div class="outline-text-3" id="text-4-10">
 <p>
 It&rsquo;s Floating IP time!
@@ -1965,8 +1969,8 @@ openstack stack delete --wait --yes hw9
 </div>
 </div>
 
-<div id="outline-container-org11678ad" class="outline-2">
-<h2 id="sec:wp-heat"><a id="org11678ad"></a><span class="section-number-2">5</span> Deploy a WordPress as a Service (as a Heat DevOps)</h2>
+<div id="outline-container-org598d2af" class="outline-2">
+<h2 id="sec:wp-heat"><a id="org598d2af"></a><span class="section-number-2">5</span> Deploy a WordPress as a Service (as a Heat DevOps)</h2>
 <div class="outline-text-2" id="text-sec:wp-heat">
 <p>
 As a DevOps at OWPH &#x2013; Online WordPress Hosting &#x2013; you are now in
@@ -2005,12 +2009,12 @@ going on <a href="http://&lt;wp-vm-fip-address&gt;/wp">http://&lt;wp-vm-fip-addr
 </div>
 </div>
 
-<div id="outline-container-orgd4616b0" class="outline-2">
-<h2 id="orgd4616b0"><span class="section-number-2">6</span> Appendix</h2>
+<div id="outline-container-org355aa08" class="outline-2">
+<h2 id="org355aa08"><span class="section-number-2">6</span> Appendix</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org026e988" class="outline-3">
-<h3 id="org026e988"><span class="section-number-3">6.1</span> Install MariaDB on Debian 10</h3>
+<div id="outline-container-orgd2ece14" class="outline-3">
+<h3 id="orgd2ece14"><span class="section-number-3">6.1</span> Install MariaDB on Debian 10</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
@@ -2055,8 +2059,8 @@ cat &lt;&lt; EOSQL | mysql -u root --password=${<span style="color: #4eee94;">DB
 </div>
 </div>
 
-<div id="outline-container-org9605a03" class="outline-3">
-<h3 id="org9605a03"><span class="section-number-3">6.2</span> Install Wordpress application on Debian 10</h3>
+<div id="outline-container-org9260a9c" class="outline-3">
+<h3 id="org9260a9c"><span class="section-number-3">6.2</span> Install Wordpress application on Debian 10</h3>
 <div class="outline-text-3" id="text-6-2">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
@@ -2126,7 +2130,7 @@ is a bit annoying.
 <p class="email">Email: <a href="mailto:{firstname.lastname}@inria.fr">{firstname.lastname}@inria.fr</a></p>
 <p class="github">Find a typo, wanna make a proposition:
  <a href="https://github.com/BeyondTheClouds/lectures/issues/new?title=[os-imt]">open an issue</a></p>
-<p class="date">Last modification: 2021-11-20 sam. 20:59</p>
+<p class="date">Last modification: 2021-11-21 dim. 21:26</p>
 <p class="license">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9) – <a href="http://gongzhitaao.org/orgcss">Zhitao Gong</a> customized theme</p>
 </div>
