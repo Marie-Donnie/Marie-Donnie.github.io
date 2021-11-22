@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-11-22 lun. 13:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thanks to OpenStack</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Ronan-Alexandre Cherrueau, Adrien Lebre, Marie Delavergne, Didier Iscovery">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../../../assets/css/org.css" />
+<style>#table-of-contents .tag {display: none;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<header>
+<h1 class="title">Thanks to OpenStack</h1>
+</header><p>
+es#+TITLE: Operate Resources in Public and Private Clouds
+</p>
+<div class="abstract">
+<p>
+OpenStack has become the de-facto solution to operate compute, network
+and storage resources in public and private clouds. In this lab, we
+are going to:
+</p>
+<ul class="org-ul">
+<li>Deploy an all-in-one OpenStack with <a href="https://opendev.org/x/microstack/">Snap microstack</a>.</li>
+<li>Operate this OpenStack to manage IaaS resources (e.g., boot VMs,
+setup a private Network).</li>
+<li>Deploys a Wordpress as a Service.</li>
+<li>Automatize all the stuff with the Heat template engine (i.e., manage
+your cloud from your sofa!).</li>
+</ul>
+
+<p>
+Find the slides of the lecture <a href="https://github.com/BeyondTheClouds/lectures/blob/869b8f3/2018-2019/os-polytech/docs/CloudFogEdgeIntro.pdf?raw=true">here</a> and <a href="https://github.com/BeyondTheClouds/lectures/blob/869b8f3/2018-2019/os-polytech/docs/openstack-slides.pdf?raw=true">there</a>.  Find the collaborative
+editor to follow lab completion <a href="https://notes.inria.fr/L5mGTNGORdewfkfINm81kA">here</a>.
+</p>
+
+</div>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec:req">1. Requirements and Setup</a>
+<ul>
+<li><a href="#orgc6bcaee">1.1. Environment</a></li>
+<li><a href="#sec:assign-lab">1.2. Access the Lab machine</a></li>
+<li><a href="#sec:rscs-lab">1.3. Resources of the Lab</a></li>
+<li><a href="#orgd1b568b">1.4. Setup OpenStack</a></li>
+</ul>
+</li>
+<li><a href="#sec:play-with-os">2. Play with OpenStack (as an Admin)</a>
+<ul>
+<li><a href="#org9cb91bf">2.1. OpenStack Horizon dashboard</a></li>
+<li><a href="#sec:os-cli">2.2. Unleash the operator in you</a>
+<ul>
+<li><a href="#orgbe0312c">2.2.1. Make the world reaches the VM</a></li>
+<li><a href="#org0d2d8e1">2.2.2. Make the VM reaches the world</a></li>
+</ul>
+</li>
+<li><a href="#sec:enc-trust">2.3. In encryption we trust</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orge59cabd" class="outline-2">
+<h2 id="sec:req"><a id="orge59cabd"></a><span class="section-number-2">1</span> Requirements and Setup</h2>
+<div class="outline-text-2" id="text-sec:req">
+</div>
+<div id="outline-container-orgc6bcaee" class="outline-3">
+<h3 id="orgc6bcaee"><span class="section-number-3">1.1</span> Environment</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+OpenStack needs, at least, 6 Go of RAM to run. And plenty more to
+start VMs on it. Therefore, this lab relies on <a href="https://www.grid5000.fr/">Grid&rsquo;5000</a>, a testbed
+for experimental research, to acquire a <i>Lab machine</i> larger than your
+personal one. The Lab machine is a Ubuntu20.04 with 128Go of RAM and
+32 CPU cores. This should be enough resources for this lab!
+</p>
+
+<p>
+The lab makes use of <a href="https://github.com/CanonicalLtd/microstack">Snap microstack</a>: OpenStack in a Snap that you can
+run locally on a single machine. Snap is the Canonical&rsquo;s App delivery
+mechanism. It enables developers to bundle all dependencies into a
+single app package. And so does Snap microstack for an all-in-one
+OpenStack on your machine.
+</p>
+
+<p>
+An all-in-one OpenStack means that your machine will contain both
+services to <i>operate</i> and <i>host</i> virtualized resources. For instance,
+the <code>nova-conductor</code> to operate the boot of a VM, and <code>nova-compute</code>
+to host the VM. This is a good setup for a lab, but not for
+production. There are several other options such as <a href="https://docs.openstack.org/devstack/latest/index.html">DevStack</a>,
+<a href="https://docs.openstack.org/puppet-openstack-guide/latest/">Puppet-OpenStack</a> or <a href="https://docs.openstack.org/developer/kolla-ansible/">Kolla-ansible</a> and all matters. But, Snap
+microstack takes only 2 minutes to deploy OpenStack (instead of 30
+minutes for other options).
+</p>
+
+<div class="note">
+<ul class="org-ul">
+<li>Devstack is good for OpenStack developers.</li>
+<li>Puppet-OpenStack or Kolla-ansible are good for production
+deployments.</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb452222" class="outline-3">
+<h3 id="sec:assign-lab"><a id="orgb452222"></a><span class="section-number-3">1.2</span> Access the Lab machine</h3>
+<div class="outline-text-3" id="text-sec:assign-lab">
+<p>
+Find the assignation list of Lab machine per student on the
+collaborative editor
+<a href="https://notes.inria.fr/L5mGTNGORdewfkfINm81kA">https://notes.inria.fr/L5mGTNGORdewfkfINm81kA</a>.
+</p>
+
+
+
+<p>
+First thing first, you have to connect to the Lab machine.
+Unfortunately, the Lab machine isn&rsquo;t available publicly, but hides
+behind the Grid&rsquo;5000 private network. One solution, as explained in
+the <a href="https://www.grid5000.fr/mediawiki/index.php/Getting_Started#Connecting_for_the_first_time">official tutorial</a>, consists in opening an SSH connection to the
+publicly available <code>access.grid5000.fr</code> machine, and from there, doing
+a second SSH connection to the Lab machine. But this solution is
+fairly limited since it doesn&rsquo;t give an access to services from your
+own machine<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
+</p>
+
+<p>
+To ease the interaction between your own machine and the Lab one, you
+should setup the Grid&rsquo;5000 <a href="https://en.wikipedia.org/wiki/Virtual_private_network">VPN</a>. The Grid&rsquo;5000 VPN gives you access to
+the Grid&rsquo;5000 private network and thus, Lab machines wherever your are
+on the globe.
+</p>
+
+<p>
+Next gives you the procedure on Ubuntu, but should be similar on other
+UNIX systems. You can also do it on Windows, however expect to be on
+your own in case of troubles.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Install the <a href="https://openvpn.net/">OpenVPN</a> client
+</p>
+<pre class="example">
+sudo apt update -y &amp;&amp; sudo apt install -y openvpn
+
+</pre></li>
+<li>Go on <a href="https://api.grid5000.fr/stable/users/">UMS</a> &gt; &ldquo;My Account&rdquo; tab &gt; &ldquo;VPN certificates&rdquo; item.</li>
+<li>&ldquo;Create new certificate&rdquo; &gt; &ldquo;Create with passphrase&rdquo;, and fill the
+form with a new password (remember it!).</li>
+<li><p>
+Click on &ldquo;Zip file&rdquo; Action &gt; store it somewhere on your personal
+machine &gt; unzip it. If the <code>unzip</code> program is unavailable, install
+it with <code>sudo apt install unzip</code>.
+</p>
+<pre class="example">
+unzip &lt;g5k_login&gt;_vpnclient.zip -d g5k_vpnclient
+
+</pre></li>
+<li><p>
+Run OpenVPN client with sudo
+</p>
+<pre class="example">
+cd g5k_vpnclient; sudo openvpn Grid5000_VPN.ovpn
+
+</pre></li>
+<li>Fill in the password of Step 3 to the question <code>Enter Private Key
+   Password:</code>.</li>
+</ol>
+
+<p>
+You correctly setup the VPN and can access Grid&rsquo;5000 private network
+if your <b>shell hangs</b> and you see the following route in your routing
+table.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">$ ip route
+
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">...</span>
+10.0.0.0/8 via 172.20.255.254 dev tun0
+172.16.0.0/16 via 172.20.255.254 dev tun0
+172.20.0.0/16 via 172.20.255.254 dev tun0
+172.20.192.0/18 dev tun0 proto kernel scope link src 172.20.192.5
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">...</span>
+</pre>
+</div>
+
+<p>
+You can finally connect to your Lab machine in another shell with the
+following SSH command. Use <code>lab-os</code> as password.
+</p>
+<pre class="example">
+ssh -l root &lt;ip-of-your-lab-machine&gt;
+
+</pre>
+
+<p>
+The rest of this lab <b>proceeds on the Lab machine</b>.
+</p>
+
+<p>
+Don&rsquo;t forget to use tmux! (see the pad)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf315126" class="outline-3">
+<h3 id="sec:rscs-lab"><a id="orgf315126"></a><span class="section-number-3">1.3</span> Resources of the Lab</h3>
+<div class="outline-text-3" id="text-sec:rscs-lab">
+<p>
+Get the resources of the lab at <a href="https://raw.githubusercontent.com/Marie-Donnie/lectures/master/2021-2022/os-imt/tp.tar.gz">https://raw.githubusercontent.com/Marie-Donnie/lectures/master/2021-2022/os-imt/tp.tar.gz</a>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">curl https://raw.githubusercontent.com/Marie-Donnie/lectures/master/2021-2022/os-imt/tp.tar.gz -o tp.tar.gz -L
+tar xzf tp.tar.gz
+<span style="color: #f08080;">cd</span> lab-os
+</pre>
+</div>
+
+<p>
+The archive contains:
+</p>
+<dl class="org-dl">
+<dt>setup.sh</dt><dd>Script that sets up the lab.</dd>
+<dt>teardown.sh</dt><dd>Script that uninstalls the lab.</dd>
+<dt>rsc</dt><dd>Resource directory with bash scripts useful for the lab.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgd1b568b" class="outline-3">
+<h3 id="orgd1b568b"><span class="section-number-3">1.4</span> Setup OpenStack</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Install snap.
+</p>
+<pre class="example">
+sudo apt update
+sudo apt install snapd
+
+</pre>
+
+<p>
+Install the latest version of OpenStack from the snap store.
+</p>
+<pre class="example">
+sudo snap install microstack --beta --devmode
+
+</pre>
+
+<p>
+Execute the <code>setup.sh</code> file with sudo to initialize OpenStack (setup
+networks, flavors, images, &#x2026;).
+</p>
+<pre class="example">
+sudo ./setup.sh
+
+</pre>
+
+<div class="do">
+<p>
+Then, ensure OpenStack services are running on your machine. Find the
+snap command that lists microstack OpenStack services and the
+status? What is the purpose of each service?
+</p>
+
+<div class="solution">
+<pre class="example">
+snap services microstack|sort
+
+</pre>
+
+<dl class="org-dl">
+<dt>glance-*</dt><dd>Glance to manage VM images: <code>openstack image --help</code>.</dd>
+<dt>horizon-*</dt><dd>OpenStack Web dashboard: <a href="https://&lt;ip-of-your-lab-machine&gt;">https://&lt;ip-of-your-lab-machine&gt;</a>.</dd>
+<dt>keystone-*</dt><dd>Keystone to manage authentication and authorization
+on OpenStack.</dd>
+<dt>neutron-*</dt><dd>Neutron to manage networks: <code>openstack network --help</code>.</dd>
+<dt>nova-*</dt><dd>Nova to manage VM: <code>openstack server --help</code>.</dd>
+<dt>memcached</dt><dd>Cache used by all OpenStack services</dd>
+<dt>mysqld</dt><dd>Database used by all OpenStack services</dd>
+<dt>rabbitmq-server</dt><dd>Communication bus used by all OpenStack services</dd>
+</dl>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org03f5120" class="outline-2">
+<h2 id="sec:play-with-os"><a id="org03f5120"></a><span class="section-number-2">2</span> Play with OpenStack (as an Admin)</h2>
+<div class="outline-text-2" id="text-sec:play-with-os">
+</div>
+<div id="outline-container-org9cb91bf" class="outline-3">
+<h3 id="org9cb91bf"><span class="section-number-3">2.1</span> OpenStack Horizon dashboard</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+One service deployed is the OpenStack dashboard (Horizon). On your own
+machine, horizon is reachable from the web browser at
+<a href="https://&lt;ip-of-your-lab-machine&gt;">https://&lt;ip-of-your-lab-machine&gt;</a> with the following credentials:
+</p>
+<ul class="org-ul">
+<li>login: <code>admin</code></li>
+<li>password: <code>lab-os</code></li>
+</ul>
+
+<p>
+From here, you can reach <code>Project &gt; Compute &gt; Instances &gt; Launch
+Instance</code> and boot a virtual machine given the following information:
+</p>
+<ul class="org-ul">
+<li>a name (e.g., <code>horizon-vm</code>)</li>
+<li>an image (e.g., <code>cirros</code>) and set the <code>Create New Volume</code> to &ldquo;No&rdquo;</li>
+<li>a flavor to limit the resources of your instance (we recommend
+<code>m1.tiny</code>)</li>
+<li>and a network setting (must be <code>test</code>)</li>
+</ul>
+
+<p>
+You should select options by clicking on the big arrow on the right of
+each possibility. When the configuration is OK, the <code>Launch Instance</code>
+button should be enabled. After clicking on it, you should see the
+instance in the <code>Active</code> state in less than a minute.
+</p>
+
+<p>
+Now, you have several options to connect to your freshly deployed VM.
+For instance, after clicking on its name, Horizon provides a virtual
+console under the <code>Console</code> tab. So, you can use the following
+credentials to access the VM:
+</p>
+<ul class="org-ul">
+<li>login: <code>cirros</code></li>
+<li>password: <code>gocubsgo</code></li>
+</ul>
+
+<p>
+However, as a <i>real DevOps</i>, you will prefer to access to your VM by
+the command line interface &hellip;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org125eb90" class="outline-3">
+<h3 id="sec:os-cli"><a id="org125eb90"></a><span class="section-number-3">2.2</span> Unleash the operator in you</h3>
+<div class="outline-text-3" id="text-sec:os-cli">
+<p>
+While Horizon is helpful to discover OpenStack features, this is not
+the tool of choice for an operator.  An operator prefers command line
+interface 😄.  You are lucky, OpenStack provides one.
+</p>
+
+<p>
+All operations to manage OpenStack are done through one unique command
+line, called <code>openstack &lt;service&gt; &lt;action&gt; ...</code>.  Doing an <code>openstack
+--help</code> displays the <i>really long</i> list of services/possibilities
+provided by this command.  The following gives you a selection of the
+most often used commands to operate your Cloud:
+</p>
+<dl class="org-dl">
+<dt>List OpenStack running services</dt><dd><code>openstack endpoint list</code></dd>
+<dt>List images</dt><dd><code>openstack image list</code></dd>
+<dt>List flavors</dt><dd><code>openstack flavor list</code></dd>
+<dt>List networks</dt><dd><code>openstack network list</code></dd>
+<dt>List computes</dt><dd><code>openstack hypervisor list</code></dd>
+<dt>List VMs (running or not)</dt><dd><code>openstack server list</code></dd>
+<dt>Get details on a specific VM</dt><dd><code>openstack server show &lt;vm-name&gt;</code></dd>
+<dt>Start a new VM</dt><dd><code>openstack server create --image &lt;image-name&gt; --flavor &lt;flavor-name&gt; --network &lt;network-name&gt; &lt;vm-name&gt;</code></dd>
+<dt>View VMs logs</dt><dd><code>openstack console log show &lt;vm-name&gt;</code></dd>
+</dl>
+
+<div class="do">
+<p>
+Try one of these commands.  Does it works?  What is the problem, how
+to fix it?  Hint: Look at the <a href="https://docs.openstack.org/python-openstackclient/ussuri/cli/authentication.html">password authentication process</a> for the
+CLI. Second hint: After you saw how cumbersome it is to add the
+credentials to each command, you can find how to source them thanks to
+the dashboard (see <a href="https://docs.openstack.org/liberty/install-guide-obs/keystone-openrc.html">https://docs.openstack.org/liberty/install-guide-obs/keystone-openrc.html</a>).
+</p>
+
+<div class="solution">
+<div class="org-src-container">
+<pre class="src src-bash">$ openstack endpoint list
+Missing value auth-url required for auth plugin password
+</pre>
+</div>
+
+<p>
+Similarly to Horizon, you have to provide your credentials to the
+OpenStack CLI and tell it the URL of the authentication service.
+There are <b>two options</b> to achieve this.  First, to give them as
+arguments of the command.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">openstack server list --os-auth-url=https://&lt;ip-of-your-lab-machine&gt;:5000/v3/ <span style="color: #deb887;">\</span>
+                        --os-username=admin <span style="color: #deb887;">\</span>
+                        --os-password=lab-os <span style="color: #deb887;">\</span>
+                        --os-project-name=admin <span style="color: #deb887;">\</span>
+                        --os-user-domain-name=Default <span style="color: #deb887;">\</span>
+                        --os-project-domain-id=default
+</pre>
+</div>
+
+<p>
+This is a bit cumbersome since you have to give them every time.  The
+second option consists in seting your credentials as variables in your
+bash <a href="https://www.gnu.org/software/coreutils/manual/html_node/env-invocation.html#env-invocation">environment</a>.  Hence, the CLI automatically reads these variables
+instead.  You can find a pre-generated file with all variables
+properly set under the Horizon interface by clicking on the <code>admin</code>
+dropdown list at the top right corner, and get the &ldquo;OpenStack RC
+File&rdquo;.
+</p>
+
+<p>
+To setup your environment, download this file on your Lab machine and
+source it.
+</p>
+<pre class="example">
+source ./admin-openrc.sh
+
+</pre>
+
+<p>
+You can then check that your environment is correctly set.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">$ env|fgrep OS_|sort
+
+<span style="color: #4eee94;">OS_AUTH_URL</span>=http://&lt;ip-of-your-lab-machine&gt;:5000/v3/
+<span style="color: #4eee94;">OS_IDENTITY_API_VERSION</span>=3
+<span style="color: #4eee94;">OS_INTERFACE</span>=public
+<span style="color: #4eee94;">OS_PASSWORD</span>=lab-os
+<span style="color: #4eee94;">OS_PROJECT_DOMAIN_ID</span>=default
+<span style="color: #4eee94;">OS_PROJECT_ID</span>=2bad71b9246a4a06a0c9daf2d8896108
+<span style="color: #4eee94;">OS_PROJECT_NAME</span>=admin
+<span style="color: #4eee94;">OS_REGION_NAME</span>=microstack
+<span style="color: #4eee94;">OS_USER_DOMAIN_NAME</span>=Default
+<span style="color: #4eee94;">OS_USERNAME</span>=admin
+</pre>
+</div>
+
+</div>
+
+</div>
+
+<div class="do">
+<p>
+Using all these commands, use the CLI to start a new tiny cirros VM
+called <code>cli-vm</code>.
+</p>
+<div class="solution">
+<div class="org-src-container">
+<pre class="src src-bash">openstack server create <span style="color: #deb887;">\</span>
+  --image cirros <span style="color: #deb887;">\</span>
+  --flavor m1.tiny <span style="color: #deb887;">\</span>
+  --network test <span style="color: #deb887;">\</span>
+  cli-vm
+</pre>
+</div>
+
+</div>
+
+</div>
+
+<p>
+Then, display the information about your VM with the following
+command:
+</p>
+<pre class="example">
+openstack server show cli-vm
+
+</pre>
+
+<p>
+Note in particular the <code>status</code> of your VM.
+</p>
+<pre class="example">
+openstack server show cli-vm -c status -f json
+
+</pre>
+
+<p>
+This status will go from <code>BUILD</code>: OpenStack is looking for the best
+place to boot the VM; to <code>ACTIVE</code>: your VM is running.  The status
+could also be <code>ERROR</code> if you are experiencing hard times with your
+infrastructure.
+</p>
+
+<div class="do">
+<p>
+What is the purpose of the <code>-c</code> and <code>-f</code> argument in the previous
+command.
+</p>
+<div class="solution">
+<pre class="example">
+$ openstack server create --help | fgrep -A 6 "output formatters:"
+output formatters:
+  output formatter options
+
+  -f {json,shell,table,value,yaml}, --format {json,shell,table,value,yaml}
+                        the output format, defaults to table
+  -c COLUMN, --column COLUMN
+                        specify the column(s) to include, can be repeated
+</pre>
+
+</div>
+
+</div>
+
+<p>
+A VM in <code>ACTIVE</code> state still has to go through the <a href="http://www.tldp.org/LDP/intro-linux/html/sect_04_02.html">boot process and
+init</a>. Hence, you may still have to wait for one minute or two that
+your VM finishes to boot. You can check that your VM finished to boot
+by looking at its logs with <code>openstack console log show cli-vm</code>. A
+CirrOS VM finished to boot when last lines are:
+</p>
+<pre class="example">
+=== cirros: current=0.4.0 latest=0.4.0 uptime=29.16 ===
+  ____               ____  ____
+ / __/ __ ____ ____ / __ \/ __/
+/ /__ / // __// __// /_/ /\ \
+\___//_//_/  /_/   \____/___/
+   http://cirros-cloud.net
+
+
+login as 'cirros' user. default password: 'gocubsgo'. use 'sudo' for root.
+cli-vm login:
+</pre>
+</div>
+
+<div id="outline-container-orgbe0312c" class="outline-4">
+<h4 id="orgbe0312c"><span class="section-number-4">2.2.1</span> Make the world reaches the VM</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+The <a href="https://docs.openstack.org/neutron/ussuri/">neutron</a> service manage networks in OpenStack.  Neutron
+distinguishes, at least two kind of networks.  First, the <i>project (or
+tenant) network</i> to provide communication between VMs of the same
+project.  Second, the <i>provider (or external) network</i> to provide an
+access to the VM from the outside.  With the
+previous <code>openstack server create</code> command, the VM boots with an IP on
+the tenant network.  Consequently, you cannot ping your VM from an
+external network (e.g., the Lab machine).
+</p>
+
+<div class="do">
+<p>
+Find the IP address of the <code>cli-vm</code>. Check that you can ping that
+address from the <code>horizon-vm</code> (using the <code>Console</code> tab in the Horizon
+dashboard).  Ensure that you <b>cannot</b> ping that VM from the Lab machine.
+</p>
+
+<div class="solution">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #4eee94;">PRIV_IP</span>=$(<span style="color: #fa8072;">openstack</span> server show cli-vm -c addresses -f value | sed -E <span style="color: #deb887;">'s/test=(.+)/\1/g'</span>)
+<span style="color: #f08080;">echo</span> <span style="color: #deb887;">"Private IP of cli-vm is ${PRIV_IP}"</span>
+ping -c 3 <span style="color: #deb887;">"${PRIV_IP}"</span> <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">From horizon-vm: 0% packet loss, From lab: 100% packet loss</span>
+</pre>
+</div>
+
+</div>
+
+</div>
+
+<p>
+To ping your VM from the Lab machine, you have to affect it an IP
+address of the <code>external</code> network.  The management of the external
+network is done typically at the level of the infrastructure and not
+by OpenStack.  OpenStack allows to access IP addresses of that network
+using <i>floating IPs</i>.  A floating IP is not allocated to a specific VM
+by default. Rather, an operator has to explicitly <i>pick</i> one from a
+pool and then attach it to its VM. Thus, if the VM dies for some
+reason, the operator does not lose the floating IP &#x2013; it remains her
+own resource, ready to be attached to another VM.  For instance, OVH
+uses that mechanism to assign public IP addresses to VMs.
+</p>
+
+<p>
+Affect a floating IP of the <code>external</code> network to your machine if you
+want it to be pingable from the host.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #4eee94;">ALLOCATED_FIP</span>=$(<span style="color: #fa8072;">openstack</span> floating ip create <span style="color: #deb887;">\</span>
+  -c floating_ip_address -f value external)
+<span style="color: #f08080;">echo</span> <span style="color: #deb887;">"${ALLOCATED_FIP}"</span>
+openstack server add floating ip cli-vm <span style="color: #deb887;">"${ALLOCATED_FIP}"</span>
+</pre>
+</div>
+
+<p>
+Then, ask again for the status of your VM and its IPs.
+</p>
+<pre class="example">
+openstack server show cli-vm -c status -c addresses
+
+</pre>
+
+<div class="do">
+<p>
+Ping <code>cli-vm</code> on its floating IP.
+</p>
+<pre class="example">
+ping -c 3 "$ALLOCATED_FIP"
+
+</pre>
+
+<p>
+Does it work? Why? Hint: OpenStack limits the traffic for security
+reasons.  The mechanisms to control the traffic in OpenStack is called
+<a href="https://docs.openstack.org/neutron/ussuri/feature_classification/general_feature_support_matrix.html#operation_Security_Groups">security group</a>.  Find the command that list the security group rules
+of the <code>admin</code> project.
+</p>
+
+<div class="solution">
+<div class="org-src-container">
+<pre class="src src-bash">$ <span style="color: #4eee94;">SECGROUP_ID</span>=$(<span style="color: #fa8072;">openstack</span> security group list --project admin -f value -c ID)
+$ openstack security group rule list --long -c <span style="color: #deb887;">"IP Protocol"</span> -c <span style="color: #deb887;">"IP Range"</span> -c Direction $<span style="color: #4eee94;">SECGROUP_ID</span>
+
++-------------+------------------+-----------+
+| IP Protocol | IP Range         | Direction |
++-------------+------------------+-----------+
+| None        | 192.168.222.0/24 | ingress   |
+| None        | 0.0.0.0/0        | egress    |
++-------------+------------------+-----------+
+</pre>
+</div>
+
+<p>
+By default, OpenStack is very conservative and only allows two kinds
+of intercommunication patterns:
+</p>
+<ol class="org-ol">
+<li>Any intercommunication among hosts of the same project.  This is
+the first line.  It should be read as &ldquo;<i>Neutron allows incoming
+traffic (<code>ingress</code>) between</i> <i>hosts of <code>192.162.222.*</code> of any
+protocol (<code>None</code> specific ones)</i>&rdquo;.</li>
+<li>Any kind of outgoing communications.  This is the second line.  It
+should be read as &ldquo;<i>Neutron allows outgoing traffic (<code>egress</code>) to
+anywhere (<code>0.0.0.0/0</code>) and of any protocol (<code>None</code>)</i>&rdquo;.</li>
+</ol>
+<p>
+And that&rsquo;s it.  Since there are no more rules, it means that OpenStack
+prevents all other ingress communications including communications on
+<code>10.20.20.*</code>.
+</p>
+
+<div class="note">
+<p>
+Commonly, OpenStack states the first intercommunication pattern of
+&ldquo;allowing traffic among hosts of the same project&rdquo; not as we see it
+here, but using a <i>remote security group</i>.  While specifying a
+security group rule, the DevOps gives either an IP Range (e.g.,
+<code>192.168.222.0/24</code>) with <code>--remote-ip</code>, or machines that belongs to a
+specific group with <code>--remote-group</code>.  Using the latter, OpenStack
+implements the first intercommunication pattern with a rule that tells
+Neutron to allow traffic between hosts of the group <code>$SECGROUP_ID</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$ openstack security group rule create $<span style="color: #4eee94;">SECGROUP_ID</span> --remote-group $<span style="color: #4eee94;">SECGROUP_ID</span>
+
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">It appears as so in the security group rule list:</span>
++-------------+------------------+-----------+
+| IP Protocol | Remote Group     | Direction |
++-------------+------------------+-----------+
+| None        | &lt;SECGROUP_ID&gt;    | ingress   |
++-------------+------------------+-----------+
+</pre>
+</div>
+
+</div>
+
+</div>
+
+<p>
+Then, make it works for <code>10.20.20.0/24</code> network.  See examples of
+security groups rules in the <a href="https://docs.openstack.org/neutron/latest/admin/deploy-lb-selfservice.html#verify-network-operation">neutron doc</a>.
+</p>
+
+<div class="solution">
+<p>
+To make it works, you have to setup new rules in the security group of
+the <code>admin</code> project. The following rules allow ICMP packets (for ping)
+and TCP on port 22 (for SSH connection) on the VM.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">openstack security group rule create $<span style="color: #4eee94;">SECGROUP_ID</span> --proto icmp --remote-ip 10.20.20.0/24
+openstack security group rule create $<span style="color: #4eee94;">SECGROUP_ID</span> --proto tcp --remote-ip 10.20.20.0/24 <span style="color: #deb887;">\</span>
+  --dst-port 22
+</pre>
+</div>
+
+</div>
+
+</div>
+
+
+<p>
+Once you succeed to ping the vm, you should also be able to SSH on it.
+</p>
+<pre class="example">
+ssh -l cirros "$ALLOCATED_FIP"
+
+</pre>
+
+<div class="do">
+<p>
+Go on, and play with the <code>openstack</code> CLI.  List all features offered
+by Nova with <code>openstack server --help</code> and figure out how to:
+</p>
+<ol class="org-ol">
+<li>SSH on <code>cli-vm</code> using its name rather than its IP;</li>
+<li>Pause it, note the footprint on the ram of the hypervisor, and unpause it;</li>
+<li><del>Suspend it, note the footprint on the ram of the hypervisor, and
+resume it;</del> Does not work right now 😒.</li>
+<li>Create a snapshot of <code>cli-vm</code>;</li>
+<li>Boot a new machine <code>cli-vm-clone</code> from the snapshot;</li>
+<li>Delete <code>cli-vm-clone</code>;</li>
+</ol>
+
+<div class="solution">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">1.</span>
+openstack server ssh cli-vm -l cirros
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">2.</span>
+<span style="color: #4eee94;">CLI_VM_HYPERVISOR</span>=$(<span style="color: #fa8072;">openstack</span> server show cli-vm -c <span style="color: #deb887;">"OS-EXT-SRV-ATTR:hypervisor_hostname"</span> -f value)
+openstack hypervisor show -c free_ram_mb <span style="color: #deb887;">"$CLI_VM_HYPERVISOR"</span>
+openstack server pause cli-vm; openstack server show cli-vm -c status
+openstack hypervisor show -c free_ram_mb <span style="color: #deb887;">"$CLI_VM_HYPERVISOR"</span>
+openstack server unpause cli-vm; openstack server show cli-vm -c status
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">3.</span>
+openstack server suspend cli-vm; openstack server show cli-vm -c status
+openstack hypervisor show -c free_ram_mb <span style="color: #deb887;">"$CLI_VM_HYPERVISOR"</span>
+openstack server resume cli-vm; openstack server show cli-vm -c status
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">4.</span>
+openstack server image create --name cli-vm-img cli-vm; openstack image list
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">5.</span>
+openstack server create --wait --flavor m1.tiny <span style="color: #deb887;">\</span>
+  --network test --image cli-vm-img <span style="color: #deb887;">\</span>
+  cli-vm-clone
+<span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">6.</span>
+openstack server delete cli-vm-clone
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0d2d8e1" class="outline-4">
+<h4 id="org0d2d8e1"><span class="section-number-4">2.2.2</span> Make the VM reaches the world</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+From the cirros, ping the outside world.
+</p>
+<pre class="example">
+openstack server ssh cli-vm --login cirros
+ping 8.8.8.8  # GOOGLE could you HEAR me?!
+
+</pre>
+
+<div class="do">
+<p>
+Does it work? Why? To help you in your diagnosis, here is a list of
+hints to check:
+</p>
+<ul class="org-ul">
+<li><p>
+Ping the VM and Google <b>from the Lab machine</b>. The ping should work
+for both. What does it mean for the Lab machine regarding
+communications between VMs and the Internet?
+</p>
+<div class="solution">
+<pre class="example">
+ping -c 2 $ALLOCATED_FIP; ping -c 2 8.8.8.8
+
+</pre>
+<p>
+The ping from the Lab machine works for both the VM and Google.
+Thus, the Lab machine <i>could be a gateway</i> between VMs and the
+Internet.
+</p>
+
+</div></li>
+
+<li><p>
+Note the IP address of <code>$ALLOCATED_FIP</code>. From which network this IP
+comes? Which NIC serves that network on the Lab machine?
+</p>
+<div class="solution">
+<pre class="example">
+echo "$ALLOCATED_FIP"
+openstack subnet show external-subnet -c cidr -c allocation_pools
+ip address | fgrep -B 2 10.20.20
+
+</pre>
+<p>
+The IP of the VM comes from the network 10.20.20.0/24, which is
+served on the Lab machine by <code>br-ex</code>.
+</p>
+
+</div></li>
+
+<li><p>
+Do a <code>tcpdump</code> on that NIC. Do you see the ICMP packets from
+<code>$ALLOCATED_FIP</code> that flow over that NIC?
+</p>
+<div class="solution">
+<pre class="example">
+sudo tcpdump -nni br-ex icmp
+
+</pre>
+<p>
+The <code>tcpdump</code> on <code>br-ex</code> shows ping <code>echo request</code> packets, but no
+<code>echo reply</code>. So the packets are lost somewhere&#x2026; Remember
+the Lab machine should play a role of gateway between VMs and
+the Internet.  Thus, packets should flow through the NIC of the
+default route: let&rsquo;s see what is happening there.
+</p>
+
+</div></li>
+
+<li><p>
+Find the route that forward packets to the Internet on Lab machine.
+Do a <code>tcpdump</code> on the NIC that servers that route. Do you see the
+ICMP packets flow over that NIC?
+</p>
+<div class="solution">
+<p>
+To ensure that something is wrong on the Lab machine regarding its
+role of gateway between VMs and the Internet, let&rsquo;s find the route
+that forwards Google packets out of the Lab machine.
+</p>
+<pre class="example">
+$ ip route
+
+default via 192.168.121.1 dev eth0 proto dhcp src 192.168.121.77 metric 100
+10.20.20.0/24 dev br-ex proto kernel scope link src 10.20.20.1
+192.168.121.0/24 dev eth0 proto kernel scope link src 192.168.121.77
+192.168.121.1 dev eth0 proto dhcp scope link src 192.168.121.77 metric 100
+
+</pre>
+<p>
+The command does not show up an <i>explicit</i> route for <code>8.8.8.0/9</code>
+packets. This means that packets are supposed to flow through the
+<i>default</i> route served by the <code>eth0</code> NIC on my machine.
+</p>
+
+<p>
+Next, do a <code>tcpdump</code> on that NIC to see if the ICMP packet go
+through it.
+</p>
+<pre class="example">
+sudo tcpdump -nni eth0 icmp
+
+</pre>
+<p>
+Nothing appears. So ICMP packet are lost somewhere between <code>br-ex</code>
+and <code>eth0</code>, despite the first hint.
+</p>
+
+<p>
+To put it differently, the Lab machine does not forward the incoming
+traffic on <code>br-ex</code> to <code>eth0</code>. And this is normal, there is <a href="https://serverfault.com/questions/749682/ip-forwarding-on-linux-anything-important-to-make-sure-to-do-or-know">no reason</a>
+for Linux to enable this by default.  However in our case, we have to
+activate it.  This is called <i>Kernel IP Forwarding</i>, and it could be
+set up with the next command (or <code>echo 1 &gt;
+  /proc/sys/net/ipv4/ip_forward</code>).
+</p>
+<pre class="example">
+sudo sysctl -w net.ipv4.ip_forward=1
+
+</pre>
+
+<div class="note">
+<p>
+Sometimes activating the kernel IP forwarding is not enough,
+<a href="http://www.microhowto.info/howto/enable_forwarding_of_ipv4_packets.html#idp17360">especially in case of firewalling</a>. A common place to perform packet
+filtering of routed traffic is in the <code>FORWARD</code> chain of the filter
+table.
+</p>
+<pre class="example">
+sudo iptables -t filter -L FORWARD -n
+
+</pre>
+
+<p>
+If a rule drops packet, then it is mandatory to accept them with a
+new rule.
+</p>
+<pre class="example">
+sudo iptables -A FORWARD -j ACCEPT
+
+</pre>
+
+</div>
+
+</div></li>
+
+<li><p>
+After making the packets flow on the second NIC, is everything OK
+with the IP address of the source in the <code>tcpdump</code> on <code>eth0</code>?
+</p>
+<div class="solution">
+<p>
+From now, the ping of Google from the VM reaches Internet via <code>eth0</code>
+(as seen by <code>tcpdump -nni eth0 icmp</code>). Unfortunately, it still does
+not do the trick, because the packet goes out with the <code>10.20.20.*</code>
+source address. For this reason, Google sees <code>ICMP echo request</code>
+incoming packets from <code>10.20.20.*</code> and hence, replies <code>ICMP echo
+  reply</code> to <code>10.20.20.*</code> which does not makes sense out of a private
+network.
+</p>
+
+<p>
+You have to change the source IP of out packet (<code>10.20.20.*</code>) to
+gateway&rsquo;s IP (i.e., Your lab machine). The <code>iptables</code> will then
+automatically change the replied packet&rsquo;s destination IP
+(<code>&lt;ip-of-your-lab-machine&gt;</code>) to the original source IP
+(<code>10.20.20.*</code>). This process is called a SNAT and you can implement
+it with <code>iptables</code> (see,
+<a href="https://www.systutorials.com/1372/setting-up-gateway-using-iptables-and-route-on-linux/">https://www.systutorials.com/1372/setting-up-gateway-using-iptables-and-route-on-linux/</a>).
+</p>
+
+<p>
+Set up the SNAT with <code>iptables</code>. The following rule should be read
+&ldquo;In the <code>nat</code> table, for packets that leave the machine (<code>-A
+  POSTROUTING</code>) and incoming from network <code>10.20.20.0/24</code> (<code>-s</code>) and
+not at destination of the network <code>10.20.20.0/24</code> (<code>! -d</code>), then
+replace the sender&rsquo;s address by the gateway&rsquo;s address (<code>-j
+  MASQUERADE</code>).&rdquo;
+</p>
+
+<pre class="example">
+sudo iptables -t nat -A POSTROUTING -s 10.20.20.0/24 ! -d 10.20.20.0/24 -j MASQUERADE
+
+</pre>
+
+</div></li>
+</ul>
+
+</div>
+
+<div class="note">
+<p>
+If you are not familiar with the debugging of network issues but
+interested in learning more I recommend to read blog post of support
+teams.  Here are two that really are worth reading:
+</p>
+<ul class="org-ul">
+<li><a href="https://cloud.google.com/blog/topics/inside-google-cloud/google-cloud-support-engineer-solves-a-tough-dns-case">https://cloud.google.com/blog/topics/inside-google-cloud/google-cloud-support-engineer-solves-a-tough-dns-case</a></li>
+<li><a href="https://www.linkedin.com/pulse/name-resolution-issue-coredns-inside-mind-problem-solver-spitzer/">https://www.linkedin.com/pulse/name-resolution-issue-coredns-inside-mind-problem-solver-spitzer/</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org311ea05" class="outline-3">
+<h3 id="sec:enc-trust"><a id="org311ea05"></a><span class="section-number-3">2.3</span> In encryption we trust</h3>
+<div class="outline-text-3" id="text-sec:enc-trust">
+<p>
+Any cirros VMs share the same credentials (i.e., <code>cirros</code>, <code>gocubsgo</code>)
+which is a security problem.  As a IaaS DevOps, you want that only
+some clients can SSH on the VMs.  Fortunately, OpenStack helps with
+the management of SSH keys.  OpenStack can generate a SSH key and push
+the public counterpart on the VM.  Therefore, doing a <code>ssh</code> on the VM
+will use the SSH key instead of asking the client to fill the
+credentials.
+</p>
+
+<p>
+Make an SSH key and store the private counterpart in <code>./admin.pem</code>.
+Then, give that file the correct permission access.
+</p>
+<pre class="example">
+openstack keypair create --private-key ./admin.pem admin
+chmod 600 ./admin.pem
+
+</pre>
+
+<p>
+Start a new VM and ask OpenStack to copy the public counterpart of
+your SSH key in the <code>~/.ssh/authorized_keys</code> of the VM (i.e., note the
+<code>--key-name admin</code>).
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">openstack server create --wait --image cirros <span style="color: #deb887;">\</span>
+  --flavor m1.tiny --network test <span style="color: #deb887;">\</span>
+  --key-name admin cli-vm-adminkey
+</pre>
+</div>
+
+<p>
+Attach it a floating IP.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">openstack server add floating ip <span style="color: #deb887;">\</span>
+  cli-vm-adminkey <span style="color: #deb887;">\</span>
+  $(<span style="color: #fa8072;">openstack</span> floating ip create -c floating_ip_address -f value external)
+</pre>
+</div>
+
+<p>
+Now you can access your VM using SSH without filling credentials.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">openstack server ssh cli-vm-adminkey <span style="color: #deb887;">\</span>
+  --login cirros <span style="color: #deb887;">\</span>
+  --identity ./admin.pem
+</pre>
+</div>
+
+<div class="note">
+<p>
+Or directly with the <code>ssh</code> command &#x2014; for bash lovers ❤.
+</p>
+<pre class="example">
+ssh -i ./admin.pem -l cirros $(openstack server show cli-vm-adminkey -c addresses -f value | sed  -Er 's/test=.+ (10\.20\.20\.[0-9]+).*/\1/g')
+
+</pre>
+
+<p>
+A regular <code>ssh</code> command looks like <code>ssh -i &lt;identity-file&gt; -l &lt;name&gt;
+&lt;server-ip&gt;</code>. The OpenStack command followed by the <code>sed</code> returns the
+floating IP of <code>cli-vm-adminkey</code>. You may have to adapt it a bit
+according to your network cidr.
+</p>
+<pre class="example">
+openstack server show cli-vm-adminkey -c addresses -f value | sed  -Er 's/test=.+ (10\.20\.20\.[0-9]+).*/\1/g'
+
+</pre>
+
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+For sure, you always can setup an SSH tunnel but this
+is a bit annoying.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Ronan-Alexandre Cherrueau, Adrien Lebre, Marie Delavergne, Didier Iscovery</p>
+<p class="email">Email: <a href="mailto:{firstname.lastname}@inria.fr">{firstname.lastname}@inria.fr</a></p>
+<p class="github">Find a typo, wanna make a proposition:
+ <a href="https://github.com/BeyondTheClouds/lectures/issues/new?title=[os-imt]">open an issue</a></p>
+<p class="date">Last modification: 2021-11-22 lun. 13:20</p>
+<p class="license">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9) – <a href="http://gongzhitaao.org/orgcss">Zhitao Gong</a> customized theme</p>
+</div>
+</body>
+</html>
