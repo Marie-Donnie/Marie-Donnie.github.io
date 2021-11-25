@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-11-25 jeu. 15:39 -->
+<!-- 2021-11-25 jeu. 17:03 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Operate Resources in Public and Private Clouds Thanks to OpenStack</title>
@@ -259,22 +259,22 @@ editor to follow lab completion <a href="https://notes.inria.fr/tFihp6A5TA-fOaUI
 <ul>
 <li><a href="#sec:req">1. Requirements and Setup</a>
 <ul>
-<li><a href="#org624a0fa">1.1. Environment</a></li>
+<li><a href="#org073d0d6">1.1. Environment</a></li>
 <li><a href="#sec:assign-lab">1.2. Access the Lab machine</a></li>
 <li><a href="#sec:rscs-lab">1.3. Resources of the Lab</a></li>
-<li><a href="#org1aa3a94">1.4. Setup OpenStack</a></li>
+<li><a href="#org19e8d3a">1.4. Setup OpenStack</a></li>
 </ul>
 </li>
 <li><a href="#sec:play-with-os">2. Play with OpenStack (as an Admin)</a>
 <ul>
-<li><a href="#orgf25cc7e">2.1. OpenStack Horizon dashboard</a></li>
+<li><a href="#org4560b5b">2.1. OpenStack Horizon dashboard</a></li>
 <li><a href="#sec:os-cli">2.2. Unleash the operator in you</a>
 <ul>
-<li><a href="#org1024990">2.2.1. Make the world reaches the VM</a></li>
+<li><a href="#orge678cef">2.2.1. Make the world reaches the VM</a></li>
 </ul>
 </li>
 <li><a href="#sec:enc-trust">2.3. In encryption we trust</a></li>
-<li><a href="#orgb5b188b">2.4. The art of contextualizing a VM</a>
+<li><a href="#orgc8cee59">2.4. The art of contextualizing a VM</a>
 <ul>
 <li><a href="#sec:debian10-ftw">2.4.1. Debian 10 FTW</a></li>
 <li><a href="#sec:cloud-init">2.4.2. <code>cloud-init</code> in Action</a></li>
@@ -283,31 +283,31 @@ editor to follow lab completion <a href="https://notes.inria.fr/tFihp6A5TA-fOaUI
 </ul>
 </li>
 <li><a href="#sec:wp-devops">3. Deploy a WordPress as a Service (as a DevOps)</a></li>
-<li><a href="#org0d31d22">4. Appendix</a>
+<li><a href="#org7bb399f">4. Appendix</a>
 <ul>
-<li><a href="#org63b5b79">4.1. Vagrantfile</a></li>
-<li><a href="#org81352d2">4.2. Install MariaDB on Debian 10</a></li>
-<li><a href="#orgf1ccdc1">4.3. Install Wordpress application on Debian 10</a></li>
-<li><a href="#orgc8538e5">4.4. VM Live migration</a></li>
+<li><a href="#org7148f3a">4.1. Vagrantfile</a></li>
+<li><a href="#org3c80918">4.2. Install MariaDB on Debian 10</a></li>
+<li><a href="#org77b455f">4.3. Install Wordpress application on Debian 10</a></li>
+<li><a href="#org5124c9f">4.4. VM Live migration</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgeadc6f8" class="outline-2">
-<h2 id="sec:req"><a id="orgeadc6f8"></a><span class="section-number-2">1</span> Requirements and Setup</h2>
+<div id="outline-container-org2107b9b" class="outline-2">
+<h2 id="sec:req"><a id="org2107b9b"></a><span class="section-number-2">1</span> Requirements and Setup</h2>
 <div class="outline-text-2" id="text-sec:req">
 </div>
-<div id="outline-container-org624a0fa" class="outline-3">
-<h3 id="org624a0fa"><span class="section-number-3">1.1</span> Environment</h3>
+<div id="outline-container-org073d0d6" class="outline-3">
+<h3 id="org073d0d6"><span class="section-number-3">1.1</span> Environment</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 To follow the lab you&rsquo;ll need a Linux (tested under Ubuntu 20.04)
 with, at least, 8 GiB of RAM and 2 CPU.  We are going to use Linux
 Dell R320 from room D011.  If you have a <b>different version</b> of Ubuntu
 installed &#x2013; use <code>lsb_release -d</code> to check it out &#x2013; you should start
-a proper VM using, for instance, the <a href="#org63b5b79">Vagrantfile</a> given in the
+a proper VM using, for instance, the <a href="#org7148f3a">Vagrantfile</a> given in the
 Appendix.  Alternatively, you can also use your own machine.
 </p>
 
@@ -341,8 +341,8 @@ deployments.</li>
 </div>
 </div>
 
-<div id="outline-container-orgaf0be81" class="outline-3">
-<h3 id="sec:assign-lab"><a id="orgaf0be81"></a><span class="section-number-3">1.2</span> Access the Lab machine</h3>
+<div id="outline-container-org852cd4e" class="outline-3">
+<h3 id="sec:assign-lab"><a id="org852cd4e"></a><span class="section-number-3">1.2</span> Access the Lab machine</h3>
 <div class="outline-text-3" id="text-sec:assign-lab">
 <p>
 First thing first, you have to connect to the Lab machine as <code>invité</code>
@@ -389,8 +389,8 @@ The rest of this lab <b>proceeds on the Lab machine</b>.
 </div>
 </div>
 
-<div id="outline-container-org5aff1b5" class="outline-3">
-<h3 id="sec:rscs-lab"><a id="org5aff1b5"></a><span class="section-number-3">1.3</span> Resources of the Lab</h3>
+<div id="outline-container-org3f0250a" class="outline-3">
+<h3 id="sec:rscs-lab"><a id="org3f0250a"></a><span class="section-number-3">1.3</span> Resources of the Lab</h3>
 <div class="outline-text-3" id="text-sec:rscs-lab">
 <p>
 Get the resources of the lab at <a href="https://github.com/Marie-Donnie/lectures/blob/master/2021-2022/os-polytech/tp.tar.gz">https://github.com/Marie-Donnie/lectures/blob/master/2021-2022/os-polytech/tp.tar.gz</a>.
@@ -414,8 +414,8 @@ The archive contains:
 </div>
 </div>
 
-<div id="outline-container-org1aa3a94" class="outline-3">
-<h3 id="org1aa3a94"><span class="section-number-3">1.4</span> Setup OpenStack</h3>
+<div id="outline-container-org19e8d3a" class="outline-3">
+<h3 id="org19e8d3a"><span class="section-number-3">1.4</span> Setup OpenStack</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Install snap.
@@ -483,12 +483,12 @@ on OpenStack.</dd>
 </div>
 </div>
 
-<div id="outline-container-org256d35a" class="outline-2">
-<h2 id="sec:play-with-os"><a id="org256d35a"></a><span class="section-number-2">2</span> Play with OpenStack (as an Admin)</h2>
+<div id="outline-container-org2b9b5a7" class="outline-2">
+<h2 id="sec:play-with-os"><a id="org2b9b5a7"></a><span class="section-number-2">2</span> Play with OpenStack (as an Admin)</h2>
 <div class="outline-text-2" id="text-sec:play-with-os">
 </div>
-<div id="outline-container-orgf25cc7e" class="outline-3">
-<h3 id="orgf25cc7e"><span class="section-number-3">2.1</span> OpenStack Horizon dashboard</h3>
+<div id="outline-container-org4560b5b" class="outline-3">
+<h3 id="org4560b5b"><span class="section-number-3">2.1</span> OpenStack Horizon dashboard</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 One service deployed is the OpenStack dashboard (Horizon). On your own
@@ -537,8 +537,8 @@ the command line interface &hellip;
 </div>
 </div>
 
-<div id="outline-container-orgf000f03" class="outline-3">
-<h3 id="sec:os-cli"><a id="orgf000f03"></a><span class="section-number-3">2.2</span> Unleash the operator in you</h3>
+<div id="outline-container-org35c296f" class="outline-3">
+<h3 id="sec:os-cli"><a id="org35c296f"></a><span class="section-number-3">2.2</span> Unleash the operator in you</h3>
 <div class="outline-text-3" id="text-sec:os-cli">
 <p>
 While Horizon is helpful to discover OpenStack features, this is not
@@ -726,8 +726,8 @@ cli-vm login:
 </pre>
 </div>
 
-<div id="outline-container-org1024990" class="outline-4">
-<h4 id="org1024990"><span class="section-number-4">2.2.1</span> Make the world reaches the VM</h4>
+<div id="outline-container-orge678cef" class="outline-4">
+<h4 id="orge678cef"><span class="section-number-4">2.2.1</span> Make the world reaches the VM</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 The <a href="https://docs.openstack.org/neutron/ussuri/">neutron</a> service manage networks in OpenStack.  Neutron
@@ -911,8 +911,8 @@ openstack server delete cli-vm-clone
 </div>
 </div>
 
-<div id="outline-container-org48f652a" class="outline-3">
-<h3 id="sec:enc-trust"><a id="org48f652a"></a><span class="section-number-3">2.3</span> In encryption we trust</h3>
+<div id="outline-container-orga1ec554" class="outline-3">
+<h3 id="sec:enc-trust"><a id="orga1ec554"></a><span class="section-number-3">2.3</span> In encryption we trust</h3>
 <div class="outline-text-3" id="text-sec:enc-trust">
 <p>
 Any cirros VMs share the same credentials (i.e., <code>cirros</code>, <code>gocubsgo</code>)
@@ -989,8 +989,8 @@ openstack server show cli-vm-adminkey -c addresses -f value | sed  -Er 's/test=.
 </div>
 </div>
 
-<div id="outline-container-orgb5b188b" class="outline-3">
-<h3 id="orgb5b188b"><span class="section-number-3">2.4</span> The art of contextualizing a VM</h3>
+<div id="outline-container-orgc8cee59" class="outline-3">
+<h3 id="orgc8cee59"><span class="section-number-3">2.4</span> The art of contextualizing a VM</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Contextualizing is the process that automatically installs software,
@@ -1015,8 +1015,8 @@ executed on the VM as <code>root</code> during the boot process.
 </p>
 </div>
 
-<div id="outline-container-org5b48ef5" class="outline-4">
-<h4 id="sec:debian10-ftw"><a id="org5b48ef5"></a><span class="section-number-4">2.4.1</span> Debian 10 FTW</h4>
+<div id="outline-container-orgf5a46cb" class="outline-4">
+<h4 id="sec:debian10-ftw"><a id="orgf5a46cb"></a><span class="section-number-4">2.4.1</span> Debian 10 FTW</h4>
 <div class="outline-text-4" id="text-sec:debian10-ftw">
 <p>
 When it comes the time to deal with real applications, we cannot use
@@ -1032,7 +1032,7 @@ want to release all your resources before going further.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash" id="orgba0dd74"><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Delete VMs</span>
+<pre class="src src-bash" id="org84f73ba"><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Delete VMs</span>
 <span style="color: #00bfff;">for</span> vm<span style="color: #00bfff;"> in</span> $(<span style="color: #fa8072;">openstack</span> server list -c ID -f value); <span style="color: #00bfff;">do</span> <span style="color: #deb887;">\</span>
   <span style="color: #f08080;">echo</span> <span style="color: #deb887;">"Deleting ${vm}..."</span>; <span style="color: #deb887;">\</span>
   openstack server delete <span style="color: #deb887;">"${vm}"</span>; <span style="color: #deb887;">\</span>
@@ -1091,8 +1091,8 @@ creation arguments.
 </div>
 </div>
 
-<div id="outline-container-org8bcbeed" class="outline-4">
-<h4 id="sec:cloud-init"><a id="org8bcbeed"></a><span class="section-number-4">2.4.2</span> <code>cloud-init</code> in Action</h4>
+<div id="outline-container-org26d09db" class="outline-4">
+<h4 id="sec:cloud-init"><a id="org26d09db"></a><span class="section-number-4">2.4.2</span> <code>cloud-init</code> in Action</h4>
 <div class="outline-text-4" id="text-sec:cloud-init">
 <p>
 To tell <code>cloud-init</code> to load and execute a specific script at boot
@@ -1103,14 +1103,14 @@ extra argument to the regular <code>openstack server create</code> command.
 <div class="do">
 <p>
 Start a new VM named <code>art-vm</code> based on the <code>debian-10</code> image and the
-<code>m1.mini</code> flavor. The VM should load and execute the script <a href="#org62a9207">1</a>
+<code>m1.mini</code> flavor. The VM should load and execute the script <a href="#org72591e5">1</a>
 &#x2013; available under <code>rsc/art.sh</code> &#x2013; that installs the <a href="https://github.com/cmatsuoka/figlet"><code>figlet</code></a> and
 <a href="https://github.com/busyloop/lolcat"><code>lolcat</code></a> softwares on the VM.
 </p>
 
 <div class="solution">
 <div class="org-src-container">
-<pre class="src src-bash">openstack server create --wait --image debina-10 <span style="color: #deb887;">\</span>
+<pre class="src src-bash">openstack server create --wait --image debian-10 <span style="color: #deb887;">\</span>
   --flavor m1.mini --network test <span style="color: #deb887;">\</span>
   --key-name admin <span style="color: #deb887;">\</span>
   --user-data ./rsc/art.sh <span style="color: #deb887;">\</span>
@@ -1123,7 +1123,7 @@ Start a new VM named <code>art-vm</code> based on the <code>debian-10</code> ima
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span><code>cloud-init</code> script available under <code>rsc/art.sh</code></label><pre class="src src-bash" id="org62a9207"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
+<label class="org-src-name"><span class="listing-number">Listing 1: </span><code>cloud-init</code> script available under <code>rsc/art.sh</code></label><pre class="src src-bash" id="org72591e5"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
 <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Fix DNS resolution</span>
 <span style="color: #f08080;">echo</span> <span style="color: #deb887;">""</span> &gt; /etc/resolv.conf
 <span style="color: #f08080;">echo</span> <span style="color: #deb887;">"nameserver 8.8.8.8"</span> &gt;&gt; /etc/resolv.conf
@@ -1237,8 +1237,8 @@ debian@art-vm:~$ figlet "The Art of Contextualizing a VM" | lolcat
 </div>
 </div>
 
-<div id="outline-container-orgc308f29" class="outline-2">
-<h2 id="sec:wp-devops"><a id="orgc308f29"></a><span class="section-number-2">3</span> Deploy a WordPress as a Service (as a DevOps)</h2>
+<div id="outline-container-orge75d5d7" class="outline-2">
+<h2 id="sec:wp-devops"><a id="orge75d5d7"></a><span class="section-number-2">3</span> Deploy a WordPress as a Service (as a DevOps)</h2>
 <div class="outline-text-2" id="text-sec:wp-devops">
 <p>
 In the previous sessions, we saw how to boot a VM with OpenStack, and
@@ -1293,27 +1293,143 @@ project named <code>os-owph</code>.</li>
 
 <p>
 The <code>rsc</code> directory provides bash scripts to deploy the MariaDB
-database and web server of WordPress (also in <a href="#org0d31d22">Appendix</a>). Review it
+database and web server of WordPress (also in <a href="#org7bb399f">Appendix</a>). Review it
 before going any further (spot the <b>TODO</b>).  And ask yourself
 questions such as: Does the <code>wordpress-db</code> VM needs a floating IP in
 order to be reached by the <code>wordpress-app</code> VM?
 </p>
 
 <p>
-Also, remind to <a href="#orgba0dd74">clean your environment</a>.
+Also, remind to <a href="#org84f73ba">clean your environment</a>.
+</p>
+
+
+
+
+<div class="solution">
+<p>
+Find the solution in the <code>rsc/wordpress-deploy.sh</code> script of the
+tarball.
+</p>
+
+<p>
+First thing first, enable HTTP connections.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">openstack security group rule create $<span style="color: #4eee94;">SECGROUP_ID</span> <span style="color: #deb887;">\</span>
+  --proto tcp --remote-ip 0.0.0.0/0 <span style="color: #deb887;">\</span>
+  --dst-port 80
+</pre>
+</div>
+
+<p>
+Then start a VM with the <code>wordpress-db</code> name, <code>debian-10</code> image,
+<code>m1.mini</code> flavor, <code>test</code> network and <code>admin</code> key-pair. Also,
+contextualize your VM with the <code>rsc/install-mariadb.sh</code> script thanks
+to the <code>--user-data ./rsc/install-mariadb.sh</code> option.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">openstack server create --wait --image debian-10 <span style="color: #deb887;">\</span>
+  --flavor m1.mini --network test <span style="color: #deb887;">\</span>
+  --key-name admin <span style="color: #deb887;">\</span>
+  --user-data ./rsc/install-mariadb.sh <span style="color: #deb887;">\</span>
+  wordpress-db
+
+wait_contextualization wordpress-db
+</pre>
+</div>
+
+<p>
+Next, start a VM with <code>wordpress-app</code> name, <code>debian-10</code> image,
+<code>m1.mini</code> flavor, <code>test</code> network and <code>admin</code> key-pair. Also,
+contextualize your VM with the <code>rsc/install-wp.sh</code> script thanks to
+the <code>--user-data ./rsc/install-wp.sh</code> option. Note that you need to
+provide the IP address of the <code>wordpress-db</code> to this script before
+running it.
+</p>
+
+<p>
+Set the script with IP address of <code>wordpress-db</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sed -i <span style="color: #deb887;">'13s|.*|DB_HOST="'</span>$(<span style="color: #fa8072;">openstack</span> server show wordpress-db -c addresses -f value | sed -Er <span style="color: #deb887;">"s/test=//g"</span>)<span style="color: #deb887;">'"|'</span> ./rsc/install-wp.sh
+</pre>
+</div>
+
+<p>
+Then, create <code>wordpress-app</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">openstack server create --wait --image debian-10 <span style="color: #deb887;">\</span>
+  --flavor m1.mini --network test <span style="color: #deb887;">\</span>
+  --key-name admin <span style="color: #deb887;">\</span>
+  --user-data ./rsc/install-wp.sh <span style="color: #deb887;">\</span>
+  wordpress-app
+
+wait_contextualization wordpress-app
+</pre>
+</div>
+
+<p>
+Get a floating ip for the VM.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #4eee94;">WP_APP_FIP</span>=$(<span style="color: #fa8072;">openstack</span> floating ip create -c floating_ip_address -f value external)
+</pre>
+</div>
+
+<p>
+Attach the <code>WP_APP_FIP</code> floating ip to that VM.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">openstack server add floating ip wordpress-app <span style="color: #deb887;">"${WP_APP_FIP}"</span>
+</pre>
+</div>
+
+<p>
+Setup redirection to access your floating ip on port 80.
+</p>
+<pre class="example">
+sudo iptables -t nat -A PREROUTING -p tcp --dport 8080 -j DNAT --to "${WP_APP_FIP}:80"
+
+</pre>
+
+<p>
+Finally, you can reach WordPress on <a href="http://&lt;ip-of-your-lab&gt;:8080/wp">http://&lt;ip-of-your-lab&gt;:8080/wp</a>.
+</p>
+
+<div class="note">
+<p>
+Optionally, you can do it with an SSH tunnel to access <code>10.20.20.*</code>
+from your own machine.
+</p>
+<pre class="example">
+ssh -NL 8080:&lt;floating-ip&gt;:80 -l root &lt;ip-of-your-lab-machine&gt;
+
+</pre>
+
+<p>
+Then, reach WordPress on <a href="http://localhost:8080/wp">http://localhost:8080/wp</a>.
 </p>
 
 </div>
+
+</div>
+
+</div>
 </div>
 </div>
 
 
-<div id="outline-container-org0d31d22" class="outline-2">
-<h2 id="org0d31d22"><span class="section-number-2">4</span> Appendix</h2>
+
+
+<div id="outline-container-org7bb399f" class="outline-2">
+<h2 id="org7bb399f"><span class="section-number-2">4</span> Appendix</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org63b5b79" class="outline-3">
-<h3 id="org63b5b79"><span class="section-number-3">4.1</span> Vagrantfile</h3>
+<div id="outline-container-org7148f3a" class="outline-3">
+<h3 id="org7148f3a"><span class="section-number-3">4.1</span> Vagrantfile</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 <a href="https://en.wikipedia.org/wiki/Vagrant_(software)">Vagrant</a> is an open-source software to build development environment
@@ -1383,8 +1499,8 @@ the content of the <code>/vagrant</code> directory in the lab machine with the
 </div>
 </div>
 
-<div id="outline-container-org81352d2" class="outline-3">
-<h3 id="org81352d2"><span class="section-number-3">4.2</span> Install MariaDB on Debian 10</h3>
+<div id="outline-container-org3c80918" class="outline-3">
+<h3 id="org3c80918"><span class="section-number-3">4.2</span> Install MariaDB on Debian 10</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
@@ -1429,8 +1545,8 @@ cat &lt;&lt; EOSQL | mysql -u root --password=${<span style="color: #4eee94;">DB
 </div>
 </div>
 
-<div id="outline-container-orgf1ccdc1" class="outline-3">
-<h3 id="orgf1ccdc1"><span class="section-number-3">4.3</span> Install Wordpress application on Debian 10</h3>
+<div id="outline-container-org77b455f" class="outline-3">
+<h3 id="org77b455f"><span class="section-number-3">4.3</span> Install Wordpress application on Debian 10</h3>
 <div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
@@ -1483,8 +1599,8 @@ cat &lt;&lt; EOF &gt; /etc/wordpress/config-default.php
 </div>
 </div>
 
-<div id="outline-container-orgc8538e5" class="outline-3">
-<h3 id="orgc8538e5"><span class="section-number-3">4.4</span> VM Live migration</h3>
+<div id="outline-container-org5124c9f" class="outline-3">
+<h3 id="org5124c9f"><span class="section-number-3">4.4</span> VM Live migration</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 First start a VM with mpv and libcaca to output videos in the
@@ -1536,7 +1652,7 @@ openstack server migrate migrate-vm --live-migration --block-migration
 <p class="email">Email: <a href="mailto:{firstname.lastname}@inria.fr">{firstname.lastname}@inria.fr</a></p>
 <p class="github">Find a typo, wanna make a proposition:
  <a href="https://github.com/BeyondTheClouds/lectures/issues/new?title=[os-polytech-laroche]">open an issue</a></p>
-<p class="date">Last modification: 2021-11-25 jeu. 15:39</p>
+<p class="date">Last modification: 2021-11-25 jeu. 16:26</p>
 <p class="license">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9) – <a href="http://gongzhitaao.org/orgcss">Zhitao Gong</a> customized theme</p>
 </div>
