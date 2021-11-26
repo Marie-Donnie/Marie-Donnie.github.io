@@ -6,7 +6,7 @@ title: Communication
 
 <ul class="list-unstyled content communication">
   <li>
-    <h4>Articles</h4>
+    <h4>Articles in conferences/workshops/journals</h4>
     <ul class="list-unstyled content">
       <li>
 	<div class="flex-grow-1 pl-3 article">
@@ -16,6 +16,39 @@ title: Communication
 	  </div>
 	  <div class="abstract">
 	    Resource management systems are key elements of distributed infrastructures. At HotEdge'18, we alerted our community of the importance of delivering such a system to favor the advent of the edge computing paradigm. While new initiatives have been proposed, they are far from offering the expected features to administrate and use geo-distributed infrastructures such as the edge ones. However, there is an opportunity to move forward by proposing a break through approach in the design of resource management systems for the edge. We give the premises of such an approach by illustrating how multiple instances of a Virtual Infrastructure Manager can collaborate with each other while mitigating code efforts. Our proposal leverages service concepts, dynamic composition as well as programming software abstractions. Beyond the development of a resource management system for edge infrastructures, our proposal may lead to a new way of distributing applications where intermittent network is the norm.
+	  </div>
+	</div>
+      </li>
+      <li>
+	<div class="flex-grow-1 pl-3 article">
+	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/INRIA/hal-03282425">A service mesh for collaboration between geo-distributed services: the replication case </a></h5>
+	  <div class="citation">
+	    Marie Delavergne, Ronan-Alexandre Cherrueau, Adrien Lebre. A service mesh for collaboration between geo-distributed services: the replication case. Workshop AMP 2021 - Workshop on Agility with Microservices Programming, Jun 2021, Online, France. pp.1-8. ⟨hal-03282425⟩
+	  </div>
+	  <div class="abstract">
+	    Edge computing is becoming more and more present, with sites geo-distributed around the globe. Applications on these infrastructures must be able to manage the latency and disconnections inherent to their distribution. One way to deal with these concerns could be to deploy one entire instance of the application per site and use a service mesh to manage the collaboration between the geo-distributed instances. More precisely, we propose to reify the location of application instances in REST requests and allow redirections between these requests thanks to a dedicated language and a service mesh allowing three types of collaborations. This paper focuses on the replication of a resource between multiple instances. Though it is still a work in progress, we demonstrated the relevance of our approach in the OpenStack ecosystem.
+	  </div>
+	</div>
+      </li>
+      <li>
+	<div class="flex-grow-1 pl-3 article">
+	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/INRIA/hal-03212421">Geo-Distribute Cloud Applications at the Edge</a></h5>
+	  <div class="citation">
+	    Ronan-Alexandre Cherrueau, Marie Delavergne, Adrien Lebre. Geo-Distribute Cloud Applications at the Edge. EURO-PAR 2021 - 27th International European Conference on Parallel and Distributed Computing, Aug 2021, Lisbon, Portugal. pp.1-14, ⟨10.1007/978-3-030-85665-6_19⟩. ⟨hal-03212421⟩
+	  </div>
+	  <div class="abstract">
+	    With the arrival of the edge computing a new challenge arise for cloud applications: How to benefit from geo-distribution (locality) while dealing with inherent constraints of wide-area network links? The admitted approach consists in modifying cloud applications by entangling geo-distribution aspects in the business logic using distributed data stores. However, this makes the code intricate and contradicts the software engineering principle of externalizing concerns. We propose a different approach that relies on the modularity property of microservices applications: (i) one instance of an application is deployed at each edge location, making the system more robust to network partitions (local requests can still be satisfied), and (ii) collaboration between instances can be programmed outside of the application in a generic manner thanks to a service mesh. We validate the relevance of our proposal on a real use-case: geo-distributing OpenStack, a modular application composed of 13 million of lines of code and more than 150 services.
+	  </div>
+	</div>
+      </li>
+      <li>
+	<div class="flex-grow-1 pl-3 article">
+	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/INRIA/hal-03324177"> EnosLib: A Library for Experiment-Driven Research in Distributed Computing</a></h5>
+	  <div class="citation">
+	    Ronan-Alexandre Cherrueau, Marie Delavergne, Alexandre van Kempen, Adrien Lebre, Dimitri Pertin, et al.. EnosLib: A Library for Experiment-Driven Research in Distributed Computing. IEEE Transactions on Parallel and Distributed Systems, Institute of Electrical and Electronics Engineers, inPress, pp.1-15. ⟨10.1109/TPDS.2021.3111159⟩. ⟨hal-03324177⟩
+	  </div>
+	  <div class="abstract">
+	    Despite the importance of experiment-driven research in the distributed computing community, there has been little progress in helping researchers conduct their experiments. In most cases, they have to achieve tedious and time-consuming development and instrumentation activities to deal with the specifics of testbeds and the system under study. In order to relieve researchers of the burden of those efforts, we have developed ENOSLIB: a Python library that takes into account best experimentation practices and leverages modern toolkits on automatic deployment and configuration systems. ENOSLIB helps researchers not only in the process of developing their experimental artifacts, but also in running them over different infrastructures. To demonstrate the relevance of our library, we discuss three experimental engines built on top of ENOSLIB, and used to conduct empirical studies on complex software stacks between 2016 and 2019 (database systems, communication buses and OpenStack). By introducing ENOSLIB, our goal is to gather academic and industrial actors of our community around a library that aggregates everyday experiment-driven research operations. A library that has been already adopted by open-source projects and members of the scientific community thanks to its ease of use and extension.
 	  </div>
 	</div>
       </li>
@@ -33,10 +66,16 @@ title: Communication
     <ul class="list-unstyled content">
       <li>
 	<div class="flex-grow-1 pl-3 article">
-	  <h5 class="mt-0 mb-1"><a href="https://marie-donnie.github.io/ue_web_2020/">Web classes</a></h5>
+	  <h5 class="mt-0 mb-1"><a href="https://marie-donnie.github.io/ue_web_2021/">Web classes</a></h5>
 	  In 2021, I took the relay in giving Web classes
 	  at IMT Atlantique. The sessions are available on the
 	  corresponding website.
+	</div>
+      </li>
+      <li>
+	<div class="flex-grow-1 pl-3 article">
+	  <h5 class="mt-0 mb-1"><a href="https://marie-donnie.github.io/teachings/2021-2022/os-imt">OpenStack lab at IMT Atlantique</a> and <a href="https://marie-donnie.github.io/teachings/2021-2022/os-polytech">OpenStack lab at Polytech</a></h5>
+	  I also had to keep the flame burning with the OpenStack labs at IMT Atlantique and Polytech. This lab has a first part, which gives the student an approach as an admin of OpenStack leveraging <a href="https://snapcraft.io/microstack">Canonical Microstack</a> and being a user who deploys their stack with Heat on top of an OpenStack deployed with Kolla-Ansible thanks to <a href="https://beyondtheclouds.github.io/enos/">Enos</a>.
 	</div>
       </li>
     </ul>
