@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-12-15 mer. 07:41 -->
+<!-- 2021-12-15 mer. 14:23 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Operate Resources in Public and Private Clouds Thanks to OpenStack</title>
@@ -259,22 +259,22 @@ editor to follow lab completion <a href="https://notes.inria.fr/tFihp6A5TA-fOaUI
 <ul>
 <li><a href="#sec:req">1. Requirements and Setup</a>
 <ul>
-<li><a href="#org40d3335">1.1. Environment</a></li>
+<li><a href="#org8545e98">1.1. Environment</a></li>
 <li><a href="#sec:assign-lab">1.2. Access the Lab machine</a></li>
 <li><a href="#sec:rscs-lab">1.3. Resources of the Lab</a></li>
-<li><a href="#org49752fa">1.4. Setup OpenStack</a></li>
+<li><a href="#org9249792">1.4. Setup OpenStack</a></li>
 </ul>
 </li>
 <li><a href="#sec:play-with-os">2. Play with OpenStack (as an Admin)</a>
 <ul>
-<li><a href="#org84308a9">2.1. OpenStack Horizon dashboard</a></li>
+<li><a href="#orgaade550">2.1. OpenStack Horizon dashboard</a></li>
 <li><a href="#sec:os-cli">2.2. Unleash the operator in you</a>
 <ul>
-<li><a href="#org7ff70fc">2.2.1. Make the world reaches the VM</a></li>
+<li><a href="#org0339533">2.2.1. Make the world reaches the VM</a></li>
 </ul>
 </li>
 <li><a href="#sec:enc-trust">2.3. In encryption we trust</a></li>
-<li><a href="#org410e398">2.4. The art of contextualizing a VM</a>
+<li><a href="#org61cf4d9">2.4. The art of contextualizing a VM</a>
 <ul>
 <li><a href="#sec:debian10-ftw">2.4.1. Debian 10 FTW</a></li>
 <li><a href="#sec:cloud-init">2.4.2. <code>cloud-init</code> in Action</a></li>
@@ -283,31 +283,31 @@ editor to follow lab completion <a href="https://notes.inria.fr/tFihp6A5TA-fOaUI
 </ul>
 </li>
 <li><a href="#sec:wp-devops">3. Deploy a WordPress as a Service (as a DevOps)</a></li>
-<li><a href="#org5a20e12">4. Appendix</a>
+<li><a href="#org8ed1883">4. Appendix</a>
 <ul>
-<li><a href="#org3e8498a">4.1. Vagrantfile</a></li>
-<li><a href="#orge21c718">4.2. Install MariaDB on Debian 10</a></li>
-<li><a href="#org74c8767">4.3. Install Wordpress application on Debian 10</a></li>
-<li><a href="#org7c5226b">4.4. VM Live migration</a></li>
+<li><a href="#orgddb41c8">4.1. Vagrantfile</a></li>
+<li><a href="#org82a7976">4.2. Install MariaDB on Debian 10</a></li>
+<li><a href="#org0f690e3">4.3. Install Wordpress application on Debian 10</a></li>
+<li><a href="#orga946feb">4.4. VM Live migration</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org41b3e41" class="outline-2">
-<h2 id="sec:req"><a id="org41b3e41"></a><span class="section-number-2">1</span> Requirements and Setup</h2>
+<div id="outline-container-org27c7968" class="outline-2">
+<h2 id="sec:req"><a id="org27c7968"></a><span class="section-number-2">1</span> Requirements and Setup</h2>
 <div class="outline-text-2" id="text-sec:req">
 </div>
-<div id="outline-container-org40d3335" class="outline-3">
-<h3 id="org40d3335"><span class="section-number-3">1.1</span> Environment</h3>
+<div id="outline-container-org8545e98" class="outline-3">
+<h3 id="org8545e98"><span class="section-number-3">1.1</span> Environment</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 To follow the lab you&rsquo;ll need a Linux (tested under Ubuntu 20.04)
 with, at least, 8 GiB of RAM and 2 CPU.  We are going to use Linux
 Dell R320 from room D011.  If you have a <b>different version</b> of Ubuntu
 installed &#x2013; use <code>lsb_release -d</code> to check it out &#x2013; you should start
-a proper VM using, for instance, the <a href="#org3e8498a">Vagrantfile</a> given in the
+a proper VM using, for instance, the <a href="#orgddb41c8">Vagrantfile</a> given in the
 Appendix.  Alternatively, you can also use your own machine.
 </p>
 
@@ -341,8 +341,8 @@ deployments.</li>
 </div>
 </div>
 
-<div id="outline-container-orgbd3f9d8" class="outline-3">
-<h3 id="sec:assign-lab"><a id="orgbd3f9d8"></a><span class="section-number-3">1.2</span> Access the Lab machine</h3>
+<div id="outline-container-org4b07459" class="outline-3">
+<h3 id="sec:assign-lab"><a id="org4b07459"></a><span class="section-number-3">1.2</span> Access the Lab machine</h3>
 <div class="outline-text-3" id="text-sec:assign-lab">
 <p>
 First thing first, you have to connect to the Lab machine as <code>invité</code>
@@ -389,8 +389,8 @@ The rest of this lab <b>proceeds on the Lab machine</b>.
 </div>
 </div>
 
-<div id="outline-container-orge27b526" class="outline-3">
-<h3 id="sec:rscs-lab"><a id="orge27b526"></a><span class="section-number-3">1.3</span> Resources of the Lab</h3>
+<div id="outline-container-orga6740dc" class="outline-3">
+<h3 id="sec:rscs-lab"><a id="orga6740dc"></a><span class="section-number-3">1.3</span> Resources of the Lab</h3>
 <div class="outline-text-3" id="text-sec:rscs-lab">
 <p>
 Get the resources of the lab at <a href="https://github.com/Marie-Donnie/lectures/blob/master/2021-2022/os-polytech/tp.tar.gz">https://github.com/Marie-Donnie/lectures/blob/master/2021-2022/os-polytech/tp.tar.gz</a>.
@@ -414,8 +414,8 @@ The archive contains:
 </div>
 </div>
 
-<div id="outline-container-org49752fa" class="outline-3">
-<h3 id="org49752fa"><span class="section-number-3">1.4</span> Setup OpenStack</h3>
+<div id="outline-container-org9249792" class="outline-3">
+<h3 id="org9249792"><span class="section-number-3">1.4</span> Setup OpenStack</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Install snap.
@@ -458,17 +458,37 @@ snap command that lists microstack OpenStack services and there
 status? What is the purpose of each service?
 </p>
 
+<div class="solution">
+<pre class="example">
+snap services microstack|sort
+
+</pre>
+
+<dl class="org-dl">
+<dt>glance-*</dt><dd>Glance to manage VM images: <code>openstack image --help</code>.</dd>
+<dt>horizon-*</dt><dd>OpenStack Web dashboard: <a href="https://&lt;ip-of-your-lab-machine&gt;">https://&lt;ip-of-your-lab-machine&gt;</a>.</dd>
+<dt>keystone-*</dt><dd>Keystone to manage authentication and authorization
+on OpenStack.</dd>
+<dt>neutron-*</dt><dd>Neutron to manage networks: <code>openstack network --help</code>.</dd>
+<dt>nova-*</dt><dd>Nova to manage VM: <code>openstack server --help</code>.</dd>
+<dt>memcached</dt><dd>Cache used by all OpenStack services</dd>
+<dt>mysqld</dt><dd>Database used by all OpenStack services</dd>
+<dt>rabbitmq-server</dt><dd>Communication bus used by all OpenStack services</dd>
+</dl>
+
+</div>
+
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc7c20c3" class="outline-2">
-<h2 id="sec:play-with-os"><a id="orgc7c20c3"></a><span class="section-number-2">2</span> Play with OpenStack (as an Admin)</h2>
+<div id="outline-container-org7a18c5d" class="outline-2">
+<h2 id="sec:play-with-os"><a id="org7a18c5d"></a><span class="section-number-2">2</span> Play with OpenStack (as an Admin)</h2>
 <div class="outline-text-2" id="text-sec:play-with-os">
 </div>
-<div id="outline-container-org84308a9" class="outline-3">
-<h3 id="org84308a9"><span class="section-number-3">2.1</span> OpenStack Horizon dashboard</h3>
+<div id="outline-container-orgaade550" class="outline-3">
+<h3 id="orgaade550"><span class="section-number-3">2.1</span> OpenStack Horizon dashboard</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 One service deployed is the OpenStack dashboard (Horizon). On your own
@@ -517,8 +537,8 @@ the command line interface &hellip;
 </div>
 </div>
 
-<div id="outline-container-org2accd95" class="outline-3">
-<h3 id="sec:os-cli"><a id="org2accd95"></a><span class="section-number-3">2.2</span> Unleash the operator in you</h3>
+<div id="outline-container-org38c7776" class="outline-3">
+<h3 id="sec:os-cli"><a id="org38c7776"></a><span class="section-number-3">2.2</span> Unleash the operator in you</h3>
 <div class="outline-text-3" id="text-sec:os-cli">
 <p>
 While Horizon is helpful to discover OpenStack features, this is not
@@ -554,6 +574,70 @@ credentials to each command, you can find how to source them thanks to
 the dashboard (see the <a href="https://docs.openstack.org/liberty/install-guide-obs/keystone-openrc.html">client environment documentation</a>).
 </p>
 
+<div class="solution">
+<div class="org-src-container">
+<pre class="src src-bash">$ openstack endpoint list
+Missing value auth-url required for auth plugin password
+</pre>
+</div>
+
+<p>
+Similarly to Horizon, you have to provide your credentials to the
+OpenStack CLI and tell it the URL of the authentication service.
+There are <b>two options</b> to achieve this.  First, to give them as
+arguments of the command.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">openstack server list --os-auth-url=http://193.52.86.133:5000/v3/ <span style="color: #deb887;">\</span>
+                        --os-username=admin <span style="color: #deb887;">\</span>
+                        --os-password=keystone <span style="color: #deb887;">\</span>
+                        --os-project-name=admin <span style="color: #deb887;">\</span>
+                        --os-user-domain-name=Default <span style="color: #deb887;">\</span>
+                        --os-project-domain-id=default
+</pre>
+</div>
+
+<p>
+This is a bit cumbersome since you have to give them every time.  The
+second option consists in seting your credentials as variables in your
+bash <a href="https://www.gnu.org/software/coreutils/manual/html_node/env-invocation.html#env-invocation">environment</a>.  Hence, the CLI automatically reads these variables
+instead.  You can find a pre-generated file with all variables
+properly set under the Horizon interface by clicking on the <code>admin</code>
+dropdown list at the top right corner, and get the &ldquo;OpenStack RC
+File&rdquo;.
+</p>
+
+<p>
+To setup your environment, download and source this file on your Lab
+machine.
+</p>
+<pre class="example">
+source ./admin-openrc.sh
+
+</pre>
+
+<p>
+You can then check that your environment is correctly set.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">$ env|fgrep OS_|sort
+
+<span style="color: #4eee94;">OS_AUTH_URL</span>=http://&lt;ip-of-your-lab-machine&gt;:5000/v3/
+<span style="color: #4eee94;">OS_IDENTITY_API_VERSION</span>=3
+<span style="color: #4eee94;">OS_INTERFACE</span>=public
+<span style="color: #4eee94;">OS_PASSWORD</span>=keystone
+<span style="color: #4eee94;">OS_PROJECT_DOMAIN_ID</span>=default
+<span style="color: #4eee94;">OS_PROJECT_ID</span>=2bad71b9246a4a06a0c9daf2d8896108
+<span style="color: #4eee94;">OS_PROJECT_NAME</span>=admin
+<span style="color: #4eee94;">OS_REGION_NAME</span>=microstack
+<span style="color: #4eee94;">OS_USER_DOMAIN_NAME</span>=Default
+<span style="color: #4eee94;">OS_USERNAME</span>=admin
+</pre>
+</div>
+
+</div>
+
 </div>
 
 <div class="do">
@@ -561,6 +645,17 @@ the dashboard (see the <a href="https://docs.openstack.org/liberty/install-guide
 Using all these commands, use the CLI to start a new tiny cirros VM
 called <code>cli-vm</code>.
 </p>
+<div class="solution">
+<div class="org-src-container">
+<pre class="src src-bash">openstack server create <span style="color: #deb887;">\</span>
+  --image cirros <span style="color: #deb887;">\</span>
+  --flavor m1.tiny <span style="color: #deb887;">\</span>
+  --network test <span style="color: #deb887;">\</span>
+  cli-vm
+</pre>
+</div>
+
+</div>
 
 </div>
 
@@ -594,6 +689,19 @@ infrastructure.
 What is the purpose of the <code>-c</code> and <code>-f</code> argument in the previous
 command.
 </p>
+<div class="solution">
+<pre class="example">
+$ openstack server create --help | fgrep -A 6 "output formatters:"
+output formatters:
+  output formatter options
+
+  -f {json,shell,table,value,yaml}, --format {json,shell,table,value,yaml}
+                        the output format, defaults to table
+  -c COLUMN, --column COLUMN
+                        specify the column(s) to include, can be repeated
+</pre>
+
+</div>
 
 </div>
 
@@ -618,8 +726,8 @@ cli-vm login:
 </pre>
 </div>
 
-<div id="outline-container-org7ff70fc" class="outline-4">
-<h4 id="org7ff70fc"><span class="section-number-4">2.2.1</span> Make the world reaches the VM</h4>
+<div id="outline-container-org0339533" class="outline-4">
+<h4 id="org0339533"><span class="section-number-4">2.2.1</span> Make the world reaches the VM</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 The <a href="https://docs.openstack.org/neutron/ussuri/">neutron</a> service manage networks in OpenStack.  Neutron
@@ -726,8 +834,8 @@ resume it;</del> Does not work right now, do not try it if you do not want to ha
 </div>
 </div>
 
-<div id="outline-container-orgb949bdd" class="outline-3">
-<h3 id="sec:enc-trust"><a id="orgb949bdd"></a><span class="section-number-3">2.3</span> In encryption we trust</h3>
+<div id="outline-container-orgdcbe7a1" class="outline-3">
+<h3 id="sec:enc-trust"><a id="orgdcbe7a1"></a><span class="section-number-3">2.3</span> In encryption we trust</h3>
 <div class="outline-text-3" id="text-sec:enc-trust">
 <p>
 Any cirros VMs share the same credentials (i.e., <code>cirros</code>, <code>gocubsgo</code>)
@@ -804,8 +912,8 @@ openstack server show cli-vm-adminkey -c addresses -f value | sed  -Er 's/test=.
 </div>
 </div>
 
-<div id="outline-container-org410e398" class="outline-3">
-<h3 id="org410e398"><span class="section-number-3">2.4</span> The art of contextualizing a VM</h3>
+<div id="outline-container-org61cf4d9" class="outline-3">
+<h3 id="org61cf4d9"><span class="section-number-3">2.4</span> The art of contextualizing a VM</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Contextualizing is the process that automatically installs software,
@@ -830,8 +938,8 @@ executed on the VM as <code>root</code> during the boot process.
 </p>
 </div>
 
-<div id="outline-container-orgab57773" class="outline-4">
-<h4 id="sec:debian10-ftw"><a id="orgab57773"></a><span class="section-number-4">2.4.1</span> Debian 10 FTW</h4>
+<div id="outline-container-org5967422" class="outline-4">
+<h4 id="sec:debian10-ftw"><a id="org5967422"></a><span class="section-number-4">2.4.1</span> Debian 10 FTW</h4>
 <div class="outline-text-4" id="text-sec:debian10-ftw">
 <p>
 When it comes the time to deal with real applications, we cannot use
@@ -847,7 +955,7 @@ want to release all your resources before going further.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash" id="org79887e1"><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Delete VMs</span>
+<pre class="src src-bash" id="orge343db7"><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Delete VMs</span>
 <span style="color: #00bfff;">for</span> vm<span style="color: #00bfff;"> in</span> $(<span style="color: #fa8072;">openstack</span> server list -c ID -f value); <span style="color: #00bfff;">do</span> <span style="color: #deb887;">\</span>
   <span style="color: #f08080;">echo</span> <span style="color: #deb887;">"Deleting ${vm}..."</span>; <span style="color: #deb887;">\</span>
   openstack server delete <span style="color: #deb887;">"${vm}"</span>; <span style="color: #deb887;">\</span>
@@ -887,8 +995,8 @@ creation arguments.
 </div>
 </div>
 
-<div id="outline-container-org5d984ba" class="outline-4">
-<h4 id="sec:cloud-init"><a id="org5d984ba"></a><span class="section-number-4">2.4.2</span> <code>cloud-init</code> in Action</h4>
+<div id="outline-container-orgd720f3b" class="outline-4">
+<h4 id="sec:cloud-init"><a id="orgd720f3b"></a><span class="section-number-4">2.4.2</span> <code>cloud-init</code> in Action</h4>
 <div class="outline-text-4" id="text-sec:cloud-init">
 <p>
 To tell <code>cloud-init</code> to load and execute a specific script at boot
@@ -899,7 +1007,7 @@ extra argument to the regular <code>openstack server create</code> command.
 <div class="do">
 <p>
 Start a new VM named <code>art-vm</code> based on the <code>debian-10</code> image and the
-<code>m1.mini</code> flavor. The VM should load and execute the script <a href="#orgc2a2484">1</a>
+<code>m1.mini</code> flavor. The VM should load and execute the script <a href="#org67fc772">1</a>
 &#x2013; available under <code>rsc/art.sh</code> &#x2013; that installs the <a href="https://github.com/cmatsuoka/figlet"><code>figlet</code></a> and
 <a href="https://github.com/busyloop/lolcat"><code>lolcat</code></a> softwares on the VM.
 </p>
@@ -907,7 +1015,7 @@ Start a new VM named <code>art-vm</code> based on the <code>debian-10</code> ima
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span><code>cloud-init</code> script available under <code>rsc/art.sh</code></label><pre class="src src-bash" id="orgc2a2484"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
+<label class="org-src-name"><span class="listing-number">Listing 1: </span><code>cloud-init</code> script available under <code>rsc/art.sh</code></label><pre class="src src-bash" id="org67fc772"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
 <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Fix DNS resolution</span>
 <span style="color: #f08080;">echo</span> <span style="color: #deb887;">""</span> &gt; /etc/resolv.conf
 <span style="color: #f08080;">echo</span> <span style="color: #deb887;">"nameserver 8.8.8.8"</span> &gt;&gt; /etc/resolv.conf
@@ -965,8 +1073,8 @@ debian@art-vm:~$ figlet "The Art of Contextualizing a VM" | lolcat
 </div>
 </div>
 
-<div id="outline-container-org90b0f9c" class="outline-2">
-<h2 id="sec:wp-devops"><a id="org90b0f9c"></a><span class="section-number-2">3</span> Deploy a WordPress as a Service (as a DevOps)</h2>
+<div id="outline-container-org67e902c" class="outline-2">
+<h2 id="sec:wp-devops"><a id="org67e902c"></a><span class="section-number-2">3</span> Deploy a WordPress as a Service (as a DevOps)</h2>
 <div class="outline-text-2" id="text-sec:wp-devops">
 <p>
 In the previous sessions, we saw how to boot a VM with OpenStack, and
@@ -1021,14 +1129,14 @@ project named <code>os-owph</code>.</li>
 
 <p>
 The <code>rsc</code> directory provides bash scripts to deploy the MariaDB
-database and web server of WordPress (also in <a href="#org5a20e12">Appendix</a>). Review it
+database and web server of WordPress (also in <a href="#org8ed1883">Appendix</a>). Review it
 before going any further (spot the <b>TODO</b>).  And ask yourself
 questions such as: Does the <code>wordpress-db</code> VM needs a floating IP in
 order to be reached by the <code>wordpress-app</code> VM?
 </p>
 
 <p>
-Also, remind to <a href="#org79887e1">clean your environment</a>.
+Also, remind to <a href="#orge343db7">clean your environment</a>.
 </p>
 
 </div>
@@ -1038,12 +1146,12 @@ Also, remind to <a href="#org79887e1">clean your environment</a>.
 
 
 
-<div id="outline-container-org5a20e12" class="outline-2">
-<h2 id="org5a20e12"><span class="section-number-2">4</span> Appendix</h2>
+<div id="outline-container-org8ed1883" class="outline-2">
+<h2 id="org8ed1883"><span class="section-number-2">4</span> Appendix</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org3e8498a" class="outline-3">
-<h3 id="org3e8498a"><span class="section-number-3">4.1</span> Vagrantfile</h3>
+<div id="outline-container-orgddb41c8" class="outline-3">
+<h3 id="orgddb41c8"><span class="section-number-3">4.1</span> Vagrantfile</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 <a href="https://en.wikipedia.org/wiki/Vagrant_(software)">Vagrant</a> is an open-source software to build development environment
@@ -1113,8 +1221,8 @@ the content of the <code>/vagrant</code> directory in the lab machine with the
 </div>
 </div>
 
-<div id="outline-container-orge21c718" class="outline-3">
-<h3 id="orge21c718"><span class="section-number-3">4.2</span> Install MariaDB on Debian 10</h3>
+<div id="outline-container-org82a7976" class="outline-3">
+<h3 id="org82a7976"><span class="section-number-3">4.2</span> Install MariaDB on Debian 10</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
@@ -1159,8 +1267,8 @@ cat &lt;&lt; EOSQL | mysql -u root --password=${<span style="color: #4eee94;">DB
 </div>
 </div>
 
-<div id="outline-container-org74c8767" class="outline-3">
-<h3 id="org74c8767"><span class="section-number-3">4.3</span> Install Wordpress application on Debian 10</h3>
+<div id="outline-container-org0f690e3" class="outline-3">
+<h3 id="org0f690e3"><span class="section-number-3">4.3</span> Install Wordpress application on Debian 10</h3>
 <div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">!/usr/bin/</span><span style="color: #00bfff;">env</span><span style="color: #7f7f7f;"> bash</span>
@@ -1213,8 +1321,8 @@ cat &lt;&lt; EOF &gt; /etc/wordpress/config-default.php
 </div>
 </div>
 
-<div id="outline-container-org7c5226b" class="outline-3">
-<h3 id="org7c5226b"><span class="section-number-3">4.4</span> VM Live migration</h3>
+<div id="outline-container-orga946feb" class="outline-3">
+<h3 id="orga946feb"><span class="section-number-3">4.4</span> VM Live migration</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 First start a VM with mpv and libcaca to output videos in the
@@ -1266,7 +1374,7 @@ openstack server migrate migrate-vm --live-migration --block-migration
 <p class="email">Email: <a href="mailto:{firstname.lastname}@inria.fr">{firstname.lastname}@inria.fr</a></p>
 <p class="github">Find a typo, wanna make a proposition:
  <a href="https://github.com/BeyondTheClouds/lectures/issues/new?title=[os-polytech-laroche]">open an issue</a></p>
-<p class="date">Last modification: 2021-12-15 mer. 07:39</p>
+<p class="date">Last modification: 2021-12-15 mer. 14:22</p>
 <p class="license">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9) – <a href="http://gongzhitaao.org/orgcss">Zhitao Gong</a> customized theme</p>
 </div>
