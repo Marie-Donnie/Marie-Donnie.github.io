@@ -6,30 +6,24 @@ title: Communication
 
 <ul class="list-unstyled content communication">
   <li>
-    <h4>Articles in conferences/workshops/journals</h4>
+    <h4>Thesis</h4>
     <ul class="list-unstyled content">
       <li>
 	<div class="flex-grow-1 pl-3 article">
-	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/hal-02527366/">Edge Computing Resource Management System: Two Years Later!</a></h5>
+	  <h5 class="mt-0 mb-1"><a href="https://theses.hal.science/tel-04081084/">Cheops, a service-mesh to geo-distribute micro-service applications at the Edge</a></h5>
 	  <div class="citation">
-	    Ronan-Alexandre Cherrueau, Marie Delavergne, Adrien Lebre, Javier Rojas Balderrama, Matthieu Simonin. Edge Computing Resource Management System: Two Years Later!. [Research Report] RR-9336, Inria Rennes Bretagne Atlantique. 2020. ⟨hal-02527366v2⟩
+	    Marie Delavergne. Cheops, a service-mesh to geo-distribute micro-service applications at the Edge. Distributed, Parallel, and Cluster Computing [cs.DC]. Ecole nationale supérieure Mines-Télécom Atlantique, 2023. English. ⟨NNT : 2023IMTA0347⟩. ⟨tel-04081084⟩
 	  </div>
 	  <div class="abstract">
-	    Resource management systems are key elements of distributed infrastructures. At HotEdge'18, we alerted our community of the importance of delivering such a system to favor the advent of the edge computing paradigm. While new initiatives have been proposed, they are far from offering the expected features to administrate and use geo-distributed infrastructures such as the edge ones. However, there is an opportunity to move forward by proposing a break through approach in the design of resource management systems for the edge. We give the premises of such an approach by illustrating how multiple instances of a Virtual Infrastructure Manager can collaborate with each other while mitigating code efforts. Our proposal leverages service concepts, dynamic composition as well as programming software abstractions. Beyond the development of a resource management system for edge infrastructures, our proposal may lead to a new way of distributing applications where intermittent network is the norm.
+	    The shift from cloud computing to edge computing has changed the requirements for the applications running there. While the current cloud computing applications are extremely robust in the context of the cloud, they were not made to face the challenges inherent to the edge computing, especially disconnections and high latencies that can be observed between far sites. Since we already have robust and huge cloud applications, the question that remains is: could it be possible to use them at the edge by managing the scale and the geo-distribution of the infrastructure outside of the business logic? To answer this question, I study different existing approaches to bring applications to the edge and identify what is missing in these solutions, as well as keeping track of the interesting answers to specific problems. From this study, I present the solution built to bring cloud applications at the edge while giving users the choice of the location for their requests executions. This solution relies on the modularity of these existing cloud applications to create a service-mesh like approach that intercepts the requests between services and redirects them according to the domain-specific language (DSL) we created that allows users to specify collaborations between different edge sites.
 	  </div>
 	</div>
       </li>
-      <li>
-	<div class="flex-grow-1 pl-3 article">
-	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/INRIA/hal-03282425">A service mesh for collaboration between geo-distributed services: the replication case </a></h5>
-	  <div class="citation">
-	    Marie Delavergne, Ronan-Alexandre Cherrueau, Adrien Lebre. A service mesh for collaboration between geo-distributed services: the replication case. Workshop AMP 2021 - Workshop on Agility with Microservices Programming, Jun 2021, Online, France. pp.1-8. ⟨hal-03282425⟩
-	  </div>
-	  <div class="abstract">
-	    Edge computing is becoming more and more present, with sites geo-distributed around the globe. Applications on these infrastructures must be able to manage the latency and disconnections inherent to their distribution. One way to deal with these concerns could be to deploy one entire instance of the application per site and use a service mesh to manage the collaboration between the geo-distributed instances. More precisely, we propose to reify the location of application instances in REST requests and allow redirections between these requests thanks to a dedicated language and a service mesh allowing three types of collaborations. This paper focuses on the replication of a resource between multiple instances. Though it is still a work in progress, we demonstrated the relevance of our approach in the OpenStack ecosystem.
-	  </div>
-	</div>
-      </li>
+    </ul>
+  </li>
+  <li>
+    <h4>Conferences</h4>
+    <ul class="list-unstyled content">
       <li>
 	<div class="flex-grow-1 pl-3 article">
 	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/INRIA/hal-03212421">Geo-Distribute Cloud Applications at the Edge</a></h5>
@@ -43,6 +37,22 @@ title: Communication
       </li>
       <li>
 	<div class="flex-grow-1 pl-3 article">
+	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/hal-03770492">Cheops, a Service to Blow Away Cloud Applications to the Edge</a></h5>
+	  <div class="citation">
+Marie Delavergne, Geo Johns Antony, Adrien Lebre. Cheops, a Service to Blow Away Cloud Applications to the Edge. ICSOC 2022 - 20th International Conference on Service-Oriented Computing, Nov 2022, Sevilla, Spain. pp.530-539, ⟨10.1007/978-3-031-20984-0_37⟩. ⟨hal-03926688⟩. <a href="https://hal.inria.fr/hal-03770492">Longer version available as a research report</a>
+	  </div>
+	  <div class="abstract">
+	    One question to answer the shift from the Cloud to the Edge computing paradigm is: how dis- tributed applications developed for Cloud platforms can benefit from the opportunities of the Edge while dealing with inherent constraints of wide-area network links? Our solution to this question is to give the illusion of “single service images” spreading over the Edge infrastructure. Thanks to the modularity of micro-service based applications, one can deploy multiple instances of the same service (one per edge site) and deliver collaborations between them according to each request. This non-invasive approach is made possible by (i) a DSL that extends the application API and allows DevOps to program where/how the execution of each request should be executed, (ii) and its runtime, Cheops, a service that interprets and orchestrates each request in order to satisfy the geo-distribution parameters, allowing collaborations in a transparent manner for the underlying application. We demonstrate the relevance of our proposal by illustrating how Cheops can successfully geo- distribute the Kubernetes vanilla code.
+	  </div>
+	</div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h4>Journal</h4>
+    <ul class="list-unstyled content">
+      <li>
+	<div class="flex-grow-1 pl-3 article">
 	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/INRIA/hal-03324177"> EnosLib: A Library for Experiment-Driven Research in Distributed Computing</a></h5>
 	  <div class="citation">
 	    Ronan-Alexandre Cherrueau, Marie Delavergne, Alexandre van Kempen, Adrien Lebre, Dimitri Pertin, et al.. EnosLib: A Library for Experiment-Driven Research in Distributed Computing. IEEE Transactions on Parallel and Distributed Systems, Institute of Electrical and Electronics Engineers, inPress, pp.1-15. ⟨10.1109/TPDS.2021.3111159⟩. ⟨hal-03324177⟩
@@ -52,28 +62,42 @@ title: Communication
 	  </div>
 	</div>
       </li>
-            <li>
+    </ul>
+  </li>
+  <li>
+    <h4>Workshop</h4>
+    <ul class="list-unstyled content">
+      <li>
 	<div class="flex-grow-1 pl-3 article">
-	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/hal-03770492">Cheops, a Service to Blow Away Cloud Applications to the Edge</a></h5>
+	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/INRIA/hal-03282425">A service mesh for collaboration between geo-distributed services: the replication case </a></h5>
 	  <div class="citation">
-Marie Delavergne, Geo Johns Antony, Adrien Lebre. Cheops, a service to blow away Cloud applications to the Edge. [Research Report] RR-9486, Inria Rennes - Bretagne Atlantique. 2022, pp.1-16. (Presented at ICSOC 2022).
+	    Marie Delavergne, Ronan-Alexandre Cherrueau, Adrien Lebre. A service mesh for collaboration between geo-distributed services: the replication case. Workshop AMP 2021 - Workshop on Agility with Microservices Programming, Jun 2021, Online, France. pp.1-8. ⟨hal-03282425⟩
 	  </div>
 	  <div class="abstract">
-One question to answer the shift from the Cloud to the Edge computing paradigm is: how dis- tributed applications developed for Cloud platforms can benefit from the opportunities of the Edge while dealing with inherent constraints of wide-area network links? Our solution to this question is to give the illusion of “single service images” spreading over the Edge infrastructure. Thanks to the modularity of micro-service based applications, one can deploy multiple instances of the same service (one per edge site) and deliver collaborations between them according to each request. This non-invasive approach is made possible by (i) a DSL that extends the application API and allows DevOps to program where/how the execution of each request should be executed, (ii) and its runtime, Cheops, a service that interprets and orchestrates each request in order to satisfy the geo-distribution parameters, allowing collaborations in a transparent manner for the underlying application. We demonstrate the relevance of our proposal by illustrating how Cheops can successfully geo- distribute the Kubernetes vanilla code.
+	    Edge computing is becoming more and more present, with sites geo-distributed around the globe. Applications on these infrastructures must be able to manage the latency and disconnections inherent to their distribution. One way to deal with these concerns could be to deploy one entire instance of the application per site and use a service mesh to manage the collaboration between the geo-distributed instances. More precisely, we propose to reify the location of application instances in REST requests and allow redirections between these requests thanks to a dedicated language and a service mesh allowing three types of collaborations. This paper focuses on the replication of a resource between multiple instances. Though it is still a work in progress, we demonstrated the relevance of our approach in the OpenStack ecosystem.
 	  </div>
 	</div>
       </li>
     </ul>
   </li>
-  <!-- <li> -->
-  <!--   <h4>Presentations</h4> -->
-  <!--   <ul class="list-unstyled content"> -->
-  <!--   </ul> -->
-
-
-    <!-- </li> -->
   <li>
-    <h4>Other communications</h4>
+    <h4>Research reports</h4>
+    <ul class="list-unstyled content">
+      <li>
+	<div class="flex-grow-1 pl-3 article">
+	  <h5 class="mt-0 mb-1"><a href="https://hal.inria.fr/hal-02527366/">Edge Computing Resource Management System: Two Years Later!</a></h5>
+	  <div class="citation">
+	    Ronan-Alexandre Cherrueau, Marie Delavergne, Adrien Lebre, Javier Rojas Balderrama, Matthieu Simonin. Edge Computing Resource Management System: Two Years Later!. [Research Report] RR-9336, Inria Rennes Bretagne Atlantique. 2020. ⟨hal-02527366v2⟩
+	  </div>
+	  <div class="abstract">
+	    Resource management systems are key elements of distributed infrastructures. At HotEdge'18, we alerted our community of the importance of delivering such a system to favor the advent of the edge computing paradigm. While new initiatives have been proposed, they are far from offering the expected features to administrate and use geo-distributed infrastructures such as the edge ones. However, there is an opportunity to move forward by proposing a break through approach in the design of resource management systems for the edge. We give the premises of such an approach by illustrating how multiple instances of a Virtual Infrastructure Manager can collaborate with each other while mitigating code efforts. Our proposal leverages service concepts, dynamic composition as well as programming software abstractions. Beyond the development of a resource management system for edge infrastructures, our proposal may lead to a new way of distributing applications where intermittent network is the norm.
+	  </div>
+	</div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h4>OpenInfra Summit</h4>
     <ul class="list-unstyled content">
       <li>
 	<div class="flex-grow-1 pl-3 article">
